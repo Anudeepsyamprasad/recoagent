@@ -1,0 +1,7 @@
+pandas
+pydantic
+anthropic
+python-dotenv
+streamlit
+pytest
+ruff

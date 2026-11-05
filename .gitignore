@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.streamlit/secrets.toml
+runs/
+# personal application material (resume, form answers): never publish
+docs/context/
+CLAUDE.md.bak
+CLAUDE.md
