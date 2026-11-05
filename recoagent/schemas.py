@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import StrEnum
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -157,3 +158,19 @@ class Settlement(_Row):
     tax: int = Field(ge=0)
     utr: str
     settled_at: int  # Unix seconds (UTC)
+
+
+class ReconException(_Row):
+    """A record the deterministic matcher could not close.
+
+    `signals` are plain-language FACTS the rules observed (for example
+    'amount_differs:paid=1000,order=900'). The matcher deliberately does NOT assign a
+    category: choosing the root cause and the action is the agent's job.
+    """
+
+    exception_id: str  # EXC-0001, assigned in a stable order
+    kind: Literal["order", "payment"]
+    key: str  # order_ref for orders, payment id for orphan payments
+    signals: list[str]
+    payment_ids: list[str] = Field(default_factory=list)
+    amount_paise: int = Field(ge=0)  # reference amount, used for thresholds
