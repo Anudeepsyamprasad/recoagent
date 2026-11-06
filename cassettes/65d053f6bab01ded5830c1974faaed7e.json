@@ -1,0 +1,47 @@
+{
+ "key": "65d053f6bab01ded5830c1974faaed7e",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T06:33:15+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Shortfall = 246150 − 235655 = 10495.",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01MsYeCw9xVGJY1EsoUpjSQY",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0012",
+     "category": "SETTLEMENT_SHORTFALL",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10116 amount 252100 paise, store_status paid; payment pay_7DMLeoyyigbmH3 captured for 252100 paise, so the amounts match.",
+      "Payment fee 5042 and tax 908 paise; expected settlement = 252100 - 5042 - 908 = 246150 paise.",
+      "Settlement setl_klK8KQ39jVUE8w (UTR629127990881) settled only 235655 paise, with the same fee 5042 and tax 908 reported.",
+      "Shortfall = 246150 - 235655 = 10495 paise.",
+      "No refunds on the payment (count 0, amount_refunded 0), so no refund explains the gap."
+     ],
+     "root_cause": "The settlement paid out 10495 paise less than captured minus fee minus tax. The settlement row shows the same fee and tax as the payment, and there is no refund, so the deduction is unexplained. It needs a query to Razorpay.",
+     "proposed_action": {
+      "type": "RAISE_SETTLEMENT_QUERY",
+      "payment_id": "pay_7DMLeoyyigbmH3",
+      "amount_paise": 10495,
+      "note": "Settled 235655 vs expected 246150 for setl_klK8KQ39jVUE8w"
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4476,
+   "output_tokens": 632
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}
