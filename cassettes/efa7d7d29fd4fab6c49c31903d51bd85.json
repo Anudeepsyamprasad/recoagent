@@ -1,0 +1,37 @@
+{
+ "key": "efa7d7d29fd4fab6c49c31903d51bd85",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:54:12+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01K9vgWzZjBQ9rSXpuQHUQQW",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "razorpay_order_id": "order_IaOenQOXn3RB1g"
+    },
+    "name": "get_payments_for_order",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01JfVhF1QboRH6M2o4Jv8Jp7",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "email": "rohan8820@example.com"
+    },
+    "name": "search_payments",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3915,
+   "output_tokens": 126
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

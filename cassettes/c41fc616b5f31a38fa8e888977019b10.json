@@ -1,0 +1,70 @@
+{
+ "key": "c41fc616b5f31a38fa8e888977019b10",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:53:58+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01SNy5AFhncfXw8MCnJSsWAs",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "order_ref": "TMC-10097"
+    },
+    "name": "get_order",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_0135kZ22u6TPgGWMQaqRfaK3",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_tAQgQHrNMSiA15"
+    },
+    "name": "get_payment",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01MP5nkY1jCTrTGZZAeqCWcJ",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_tAQgQHrNMSiA15"
+    },
+    "name": "get_settlement",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01B1uXMtvQhkbLoZiVHiKTFY",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_tAQgQHrNMSiA15"
+    },
+    "name": "compute_expected_settlement",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01Uiv1wGxZWWtd6b5VxdmreK",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_tAQgQHrNMSiA15"
+    },
+    "name": "get_refunds",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3428,
+   "output_tokens": 314
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

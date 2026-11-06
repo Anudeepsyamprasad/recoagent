@@ -1,0 +1,46 @@
+{
+ "key": "64ac41fc42e593e9bf9bcb9b3c21668b",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:55:56+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Later payment is pay_6gMPtcUZKyfXd6 (1792500500 > 1792498762).",
+    "type": "text"
+   },
+   {
+    "id": "toolu_012p9P4y7iHR8qZPRGpyLUUh",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0014",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.96,
+     "evidence": [
+      "Order TMC-10137 (order_gcDwjiqx4LpoqZ) amount 146600 paise, store_status paid, refunded 0.",
+      "pay_K6nUeUuYElF05S: captured, 146600 paise, created_at 1792498762, no refunds.",
+      "pay_6gMPtcUZKyfXd6: captured, 146600 paise, created_at 1792500500 (later), same order_id and email, amount_refunded 0.",
+      "Two captured payments for one order; the customer was charged 293200 paise against an order of 146600."
+     ],
+     "root_cause": "The customer paid twice for the same order, probably through a retry or double submit. Both payments were captured. The later payment, pay_6gMPtcUZKyfXd6, is the duplicate.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_6gMPtcUZKyfXd6",
+      "amount_paise": 146600,
+      "note": "Refund the later duplicate capture. Keep pay_K6nUeUuYElF05S against order TMC-10137."
+     },
+     "risk_level": "high"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4229,
+   "output_tokens": 588
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

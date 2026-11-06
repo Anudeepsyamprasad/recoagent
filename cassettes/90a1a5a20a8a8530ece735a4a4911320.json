@@ -1,0 +1,42 @@
+{
+ "key": "90a1a5a20a8a8530ece735a4a4911320",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:42:48+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01QfC4H3o6siWipZR3VT6cw1",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0002",
+     "category": "AUTH_NOT_CAPTURED",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10027 (order_wGetDCcdx1seP3) has store_status=paid, amount 65900 paise.",
+      "pay_DLJ9YV5cC6ZKPm is the only payment on the Razorpay order: status=authorized, captured=false, amount 65900 paise, fee 0, tax 0.",
+      "Payment amount matches order amount; no refunds and no other attempts or captured payments exist."
+     ],
+     "root_cause": "The UPI payment was authorized but never captured, so the store marked the order paid while no funds were captured.",
+     "proposed_action": {
+      "type": "CAPTURE_OR_VOID",
+      "payment_id": "pay_DLJ9YV5cC6ZKPm",
+      "amount_paise": 65900,
+      "note": "Capture the authorized payment if the order is to be fulfilled, otherwise void it."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4225,
+   "output_tokens": 499
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

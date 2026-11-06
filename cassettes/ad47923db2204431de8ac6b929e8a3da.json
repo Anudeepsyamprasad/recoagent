@@ -1,0 +1,42 @@
+{
+ "key": "ad47923db2204431de8ac6b929e8a3da",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:53:27+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01PN73fJwLsRa4wLFxSrgJp2",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0004",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.9,
+     "evidence": [
+      "Order TMC-10032 (order_J8UMHBhXspthdp) amount_paise=142300, store_status=paid, refunded 0",
+      "Only one payment pay_MIbOGKpTjsBaNw: captured, amount=145200, no refunds, same email riya7499@example.com",
+      "Difference is 145200-142300=2900 paise; not a 100x unit slip",
+      "No other payment attempts for the Razorpay order, so not a duplicate"
+     ],
+     "root_cause": "Customer paid 2900 paise more than the store order amount on a single captured payment; the cause is unknown (possible fee/charge added at checkout or order amount edited).",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_MIbOGKpTjsBaNw",
+      "amount_paise": 2900,
+      "note": "Payment exceeds order amount by 2900 paise"
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4207,
+   "output_tokens": 491
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

@@ -1,0 +1,31 @@
+{
+ "key": "1f10524d928cb694aeb8d88bb5d5ad9b",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:53:46+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQStAUKEAgTGAI4AUIIdGhpbmtpbmcSDOek46lmyLyKcfXMsBoMMfsvpwqfqZHjhDnXIjDjzMPi/0EjC9Q5nxpOjFo45gBlyoRV97jtcovYqBPZRnapnsWqgTta3EoGxIMmg+Qq0QTTKaWDJPwBaisU2IQOH/bz/Hg8Zyl6x/G48UfGRUCjADVjgyakd+jOUCny6wEb3roI1kLX0a32WiKzYzl6lnT9gNtdEOoKp8lYTwkhRxf31f3gbbPmsZ2FHPVEx4fqNOUX4xZgFxrnyPX5EMOEMptbEU4GF9VGz7zKL3sCtk326Ieh2aBajWve9UOCxA55Xi2njNRSQUYhdvihEtu5B5DLtIX62PTL0vV0+nQaEo6pz1cRBdJ8468u0MoJnuEc5z1VaQt04w4VRfpOx4zJHFhh6zVmAx129DQ3KzUvNtaluSwlP1guJ9yhIZxOnC4umbTOJ/AUZUXy/JiatRM40KITwk5mHiRunAxjvZ1hk/bj4SLcJH2BttGXi5YYSqeaN4X0WG0nuQg6Qmq9W6a0RL2/s6C04O67cClX/jVdazfJTfp3ygSWmX7pnSPSJOIdikytktcHLISdzKWO8vQqsyrQij/f6eVZM/pkh+92zaLTHfPjnkdVMBJ5C5S4Bs9wtUHMxhqJm7Jy+S3ySl7U7oFT1CCC3s6QFsK6Ira0Q0umGE3Cw7DUCw7NgiFohCk5tfztwpvXGj7+Y9Bb1SeP/lcMNoCMyiyjaA05bfnRd0gaI3hkjWjEI/0vWOuKl8gT7UPYJFKRT4eKXMxLIwJktz0YGusI3sEPAh+A1pvXC4I2Zc5LLQSExwgCDrkWNQg+/bIsRH7EXi7yAlUyTtFamFnr6atPiX483wWRSjAljtTMpXV4Ja9UyJobkja/FSAZhAwskjHtP5qsm73NGSWRe8c7NBgB",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_018EawbJDP7t2DHrm1KBSmpZ",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "razorpay_order_id": "order_tR02fP2PWcfzyy"
+    },
+    "name": "get_payments_for_order",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3942,
+   "output_tokens": 99
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

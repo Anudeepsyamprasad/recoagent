@@ -1,0 +1,43 @@
+{
+ "key": "2e92bc6032394f0ccf084c809cee5841",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:56:59+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01MxtxZHe1Nf3bRPbSYFzfV8",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0024",
+     "category": "ORPHAN_PAYMENT",
+     "confidence": 0.9,
+     "evidence": [
+      "pay_tjiR5t1pHBsKdJ captured, 1280000 paise, UPI, Razorpay order order_DRoPRTj7FHOPHf, order_exists_in_store=false",
+      "search_orders by amount 1280000 returned 0 orders",
+      "search_orders by email tara7681@example.com returned 0 orders",
+      "It is the only payment on the Razorpay order, so there is no duplicate",
+      "amount_refunded=0, so no refund has been issued"
+     ],
+     "root_cause": "A captured UPI payment of Rs 12,800 has no matching store order. No order matches by amount or by customer email. The order may never have been created in the store, or the store order reference was lost.",
+     "proposed_action": {
+      "type": "LINK_OR_REFUND_ORPHAN",
+      "payment_id": "pay_tjiR5t1pHBsKdJ",
+      "amount_paise": 1280000,
+      "note": "No candidate order found by amount or email. Confirm with the customer whether an order was intended. If not, refund."
+     },
+     "risk_level": "high"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4229,
+   "output_tokens": 524
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

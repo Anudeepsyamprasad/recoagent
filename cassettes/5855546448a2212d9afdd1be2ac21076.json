@@ -1,0 +1,42 @@
+{
+ "key": "5855546448a2212d9afdd1be2ac21076",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:53:49+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_0151uxh4WT4zYVrxyQdQDXco",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0007",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.9,
+     "evidence": [
+      "Order TMC-10057 amount_paise=204900, store_status=paid, razorpay_order_id=order_tR02fP2PWcfzyy",
+      "Only one payment on the order: pay_F2BPYvK2g5H6co, captured, amount=205200, no refunds",
+      "Difference is 300 paise (Rs 3); not a 100x unit slip",
+      "Payment email sana929@example.com matches order email"
+     ],
+     "root_cause": "Customer was captured 300 paise more than the store order amount. This is a single captured payment with a small overcharge, possibly a fee or rounding add-on, or a store amount that is stale. It needs confirmation.",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_F2BPYvK2g5H6co",
+      "amount_paise": 300,
+      "note": "Payment 205200 vs order 204900"
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4213,
+   "output_tokens": 485
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "key": "1096fa4958b08711a0ecf61df9f8d552",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:56:02+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01MzgPUuazEz63EoK9vZBCjG",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0015",
+     "category": "UNRECORDED_REFUND",
+     "confidence": 0.96,
+     "evidence": [
+      "Order TMC-10144 amount 222000 paise, store_status=paid, refunded_amount_paise=0.",
+      "Payment pay_D04c4pHIzVcJyH (order_BzXcMV0yUuzN8V) captured, status=refunded, amount_refunded=222000.",
+      "Refund rfnd_9dmsCz4tX0sDkB processed for 222000 paise on pay_D04c4pHIzVcJyH; store shows no refund."
+     ],
+     "root_cause": "A full refund of 222000 paise was processed in Razorpay but never recorded in the store, so the order still shows paid with zero refunded.",
+     "proposed_action": {
+      "type": "UPDATE_STORE_REFUNDED",
+      "payment_id": "pay_D04c4pHIzVcJyH",
+      "amount_paise": 222000,
+      "note": "Record full refund rfnd_9dmsCz4tX0sDkB on order TMC-10144"
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4150,
+   "output_tokens": 502
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

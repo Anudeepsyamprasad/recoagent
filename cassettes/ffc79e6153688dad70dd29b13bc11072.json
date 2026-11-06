@@ -1,0 +1,42 @@
+{
+ "key": "ffc79e6153688dad70dd29b13bc11072",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:53:55+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_013XhGPfHwhASAhsKPJMXfr8",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0008",
+     "category": "AUTH_NOT_CAPTURED",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10094 (order_Ed3OLL8NeE4mGh) is store_status=paid for 116300 paise.",
+      "Payment pay_d32jimvAK56Dju is linked to the same Razorpay order, amount 116300 paise, status=authorized, captured=false, fee 0.",
+      "The payment amount matches the order amount, and the emails match (dev8690@example.com).",
+      "No captured payment exists for this order."
+     ],
+     "root_cause": "The payment was authorized but never captured, so the funds have not been collected. The store marked the order paid anyway. The payment needs to be captured, or voided if the order should not proceed.",
+     "proposed_action": {
+      "type": "CAPTURE_OR_VOID",
+      "payment_id": "pay_d32jimvAK56Dju",
+      "amount_paise": 116300,
+      "note": "Authorized but uncaptured; capture before the authorization expires, or void it."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3943,
+   "output_tokens": 493
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

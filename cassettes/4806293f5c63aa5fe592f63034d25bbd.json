@@ -1,0 +1,42 @@
+{
+ "key": "4806293f5c63aa5fe592f63034d25bbd",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:56:20+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01FMMDnQSE9NyAsQunZCAYCx",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0018",
+     "category": "AUTH_NOT_CAPTURED",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10172 (order_lY3xODTOa3Oey5) has store_status=paid, amount 351900 paise.",
+      "Payment pay_BWrS8NIKYnYRfN on the same Razorpay order has status=authorized, captured=false, amount 351900 paise, fee 0, tax 0.",
+      "Payment amount equals order amount and the email matches (kabir8708@example.com), so this is the intended payment and it was never captured."
+     ],
+     "root_cause": "The payment was authorized but never captured, while the store marked the order paid. Funds have not been collected and no settlement will occur unless it is captured, or voided before the authorization expires.",
+     "proposed_action": {
+      "type": "CAPTURE_OR_VOID",
+      "payment_id": "pay_BWrS8NIKYnYRfN",
+      "amount_paise": 351900,
+      "note": "Capture the authorized payment if the order is to be fulfilled; otherwise void it and mark the order unpaid."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3950,
+   "output_tokens": 540
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

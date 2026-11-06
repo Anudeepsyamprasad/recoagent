@@ -1,0 +1,46 @@
+{
+ "key": "a89a74aca2dd6c3a033fe03775ea069f",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:54:08+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Later payment is pay_qDdg0l3c2sxZRu (1791922610).",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01GkXcrtTWdccuA9YNgNgKP7",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0010",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.96,
+     "evidence": [
+      "Order TMC-10098 (order_skcJF6nS7Evpaa) amount 355500 paise, store_status paid, refunded 0.",
+      "pay_j8fXGeUUg5qPoD: captured, 355500 paise, wallet, created_at 1791921944, no refunds.",
+      "pay_qDdg0l3c2sxZRu: captured, 355500 paise, upi, created_at 1791922610 (later, ~666s after the first), no refunds.",
+      "Both payments are for the same Razorpay order and same email vihaan1819@example.com, so the customer paid twice for one order."
+     ],
+     "root_cause": "Customer paid the same order twice (wallet, then UPI about 11 minutes later). Both payments were captured, so the later one is a duplicate that should be refunded.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_qDdg0l3c2sxZRu",
+      "amount_paise": 355500,
+      "note": "Refund the later duplicate UPI payment; keep the earlier wallet payment pay_j8fXGeUUg5qPoD."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4238,
+   "output_tokens": 589
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

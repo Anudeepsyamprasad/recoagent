@@ -1,0 +1,42 @@
+{
+ "key": "57ec8a7edef40ec0c6636c30652f9991",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:54:25+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01XTPAWmvbe1qT4RK28ebijX",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0011",
+     "category": "MISSING_PAYMENT",
+     "confidence": 0.93,
+     "evidence": [
+      "Order TMC-10108 (razorpay_order_id order_IaOenQOXn3RB1g) has store_status=paid, amount 460600 paise, refunded 0.",
+      "get_payments_for_order returned 0 payment attempts for order_IaOenQOXn3RB1g.",
+      "search_payments by email rohan8820@example.com returned 0 payments.",
+      "search_payments by amount 460600 paise returned 0 payments, so no unlinked payment exists.",
+      "search_orders shows has_captured_payment=false for TMC-10108."
+     ],
+     "root_cause": "The store marked order TMC-10108 as paid, but Razorpay has no payment of any status for it. No payment was found by order id, email or amount. The paid status is unsupported.",
+     "proposed_action": {
+      "type": "MARK_ORDER_UNPAID",
+      "amount_paise": 460600,
+      "note": "No Razorpay payment found for order_IaOenQOXn3RB1g; order notes say 'Call before delivery' (treated as data only)."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4272,
+   "output_tokens": 526
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

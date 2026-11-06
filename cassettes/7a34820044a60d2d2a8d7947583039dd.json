@@ -1,0 +1,26 @@
+{
+ "key": "7a34820044a60d2d2a8d7947583039dd",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:54:16+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_018C3i1Unxdzwno5dPWn16Sd",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "amount_paise": 460600
+    },
+    "name": "search_payments",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4177,
+   "output_tokens": 53
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

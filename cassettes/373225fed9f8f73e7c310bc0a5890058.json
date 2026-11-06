@@ -1,0 +1,48 @@
+{
+ "key": "373225fed9f8f73e7c310bc0a5890058",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:56:11+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01EkYYhDE1aJM9b9CnzSPvGy",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "order_ref": "TMC-10158"
+    },
+    "name": "get_order",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01Rt2hLUzjnpAXjTib26HMbk",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_TxhLE9SfjUUH2W"
+    },
+    "name": "get_payment",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_018GbzPqiu7AkLA4JDtHzn4y",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_TxhLE9SfjUUH2W"
+    },
+    "name": "get_refunds",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3430,
+   "output_tokens": 184
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

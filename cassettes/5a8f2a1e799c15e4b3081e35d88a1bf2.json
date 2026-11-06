@@ -1,0 +1,46 @@
+{
+ "key": "5a8f2a1e799c15e4b3081e35d88a1bf2",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:56:32+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Later payment is pay_LbuyKyuKgZFgSR (created_at 1793060639).",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01T7RzboYzKHVbCx7pCR1ib2",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0020",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.96,
+     "evidence": [
+      "Order TMC-10188 (order_wwAwdQpppPtLf6) amount 370600 paise, store_status paid, refunded 0.",
+      "pay_kbIucDQ3BKG5Ar captured 370600 paise via UPI, created_at 1793059618.",
+      "pay_LbuyKyuKgZFgSR captured 370600 paise via UPI, created_at 1793060639 (about 1021s later), same order and email.",
+      "Neither payment has refunds (amount_refunded 0); the customer was charged 741200 paise against a 370600 order."
+     ],
+     "root_cause": "The customer paid twice for the same Razorpay order, probably a retry or double submit. Both payments were captured, so the later payment is a duplicate.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_LbuyKyuKgZFgSR",
+      "amount_paise": 370600,
+      "note": "Refund the later duplicate capture; keep pay_kbIucDQ3BKG5Ar as the valid payment."
+     },
+     "risk_level": "high"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4234,
+   "output_tokens": 570
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

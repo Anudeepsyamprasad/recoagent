@@ -1,0 +1,42 @@
+{
+ "key": "2f5c051202c8943f665d8d53b3e496c6",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:42:54+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01Hq2vLA4XsVoqcGb1ZxixFm",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0003",
+     "category": "UNRECORDED_REFUND",
+     "confidence": 0.96,
+     "evidence": [
+      "Order TMC-10031 (order_3xJ7gT2H2hsfWk) amount 1393700 paise, store_status paid, refunded_amount_paise 0.",
+      "Payment pay_1Bf86o0C4w7bAd captured, amount 1393700, status refunded, amount_refunded 1393700.",
+      "Refund rfnd_xpyfxobu7g1TPv for 1393700 paise on pay_1Bf86o0C4w7bAd is processed; the store does not record it.",
+      "Refund is a full refund, and the amount exceeds 1000000 paise, so risk is high."
+     ],
+     "root_cause": "Razorpay processed a full refund of 1393700 paise on pay_1Bf86o0C4w7bAd, but the store order TMC-10031 still shows paid with refunded_amount_paise 0.",
+     "proposed_action": {
+      "type": "UPDATE_STORE_REFUNDED",
+      "payment_id": "pay_1Bf86o0C4w7bAd",
+      "amount_paise": 1393700,
+      "note": "Record full refund rfnd_xpyfxobu7g1TPv on order TMC-10031"
+     },
+     "risk_level": "high"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4176,
+   "output_tokens": 563
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

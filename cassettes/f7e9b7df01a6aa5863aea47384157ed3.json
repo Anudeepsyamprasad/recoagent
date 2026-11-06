@@ -1,0 +1,41 @@
+{
+ "key": "f7e9b7df01a6aa5863aea47384157ed3",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:53:43+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01G9HQnRCSDooX8BuMsJPFCi",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0006",
+     "category": "MISSING_PAYMENT",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10052 (order_QHoAtrdJ8L4V6l) has store_status=paid, amount 137200 paise.",
+      "Only one Razorpay payment attempt exists for the order: pay_8PQyYHuSAAjtyl, status=failed, captured=false, amount 137200 paise, fee 0.",
+      "No captured or authorized payment exists for this order, so the store's paid status is unsupported."
+     ],
+     "root_cause": "The store marked the order as paid although the only card payment attempt failed and no payment was ever captured.",
+     "proposed_action": {
+      "type": "MARK_ORDER_UNPAID",
+      "amount_paise": 137200,
+      "payment_id": null,
+      "note": "Only attempt pay_8PQyYHuSAAjtyl failed; no capture."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4198,
+   "output_tokens": 450
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

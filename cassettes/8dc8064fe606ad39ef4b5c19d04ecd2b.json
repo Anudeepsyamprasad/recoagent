@@ -1,0 +1,30 @@
+{
+ "key": "8dc8064fe606ad39ef4b5c19d04ecd2b",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:53:40+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Let me check for other attempts on the order.",
+    "type": "text"
+   },
+   {
+    "id": "toolu_018nNzZAkjMRm13PN3FJstoK",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "razorpay_order_id": "order_QHoAtrdJ8L4V6l"
+    },
+    "name": "get_payments_for_order",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3935,
+   "output_tokens": 89
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

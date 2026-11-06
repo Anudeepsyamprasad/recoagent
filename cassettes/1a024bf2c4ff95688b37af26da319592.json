@@ -1,0 +1,46 @@
+{
+ "key": "1a024bf2c4ff95688b37af26da319592",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:54:02+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Shortfall = 105842 − 78742 = 27100.",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01FAw1yjBSkXcyRJj5oD2hZX",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0009",
+     "category": "SETTLEMENT_SHORTFALL",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10097 amount 108400 paise, store_status paid, matches captured payment pay_tAQgQHrNMSiA15 (108400 paise, captured, no refunds).",
+      "Payment fee 2168 + tax 390 paise; expected settlement = 108400-2168-390 = 105842 paise.",
+      "Settlement setl_PtmjHWp5dZ2ZZM (UTR914117393483) settled only 78742 paise, with same fee 2168 and tax 390 recorded.",
+      "Shortfall = 105842-78742 = 27100 paise; no refund explains it."
+     ],
+     "root_cause": "Razorpay settled 78742 paise for pay_tAQgQHrNMSiA15 versus expected 105842; 27100 paise is unexplained by fee, tax or refunds. Order and payment amounts agree.",
+     "proposed_action": {
+      "type": "RAISE_SETTLEMENT_QUERY",
+      "payment_id": "pay_tAQgQHrNMSiA15",
+      "amount_paise": 27100,
+      "note": "Settled 78742 vs expected 105842 paise; ask Razorpay to explain the 27100 paise deduction."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4480,
+   "output_tokens": 604
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

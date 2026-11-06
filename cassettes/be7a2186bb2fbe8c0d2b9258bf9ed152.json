@@ -1,0 +1,42 @@
+{
+ "key": "be7a2186bb2fbe8c0d2b9258bf9ed152",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T05:56:09+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_0152F32teQYTHBK299bDgYb9",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0016",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.9,
+     "evidence": [
+      "Order TMC-10151 amount_paise=50500, store_status=paid, refunded_amount_paise=0",
+      "Only one payment on order_Xm6fCGbZE5Gjmv: pay_08HRinUcDyT3Hh, captured, amount=30600, no refunds",
+      "Difference 50500-30600=19900 paise; not a 100x unit slip",
+      "Payment email matches order email sana8589@example.com"
+     ],
+     "root_cause": "Single captured payment of 30600 paise is 19900 paise less than the order amount of 50500 paise (short payment or order amount altered after payment creation).",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_08HRinUcDyT3Hh",
+      "amount_paise": 19900,
+      "note": "Order 50500 vs captured 30600; shortfall 19900 paise"
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4220,
+   "output_tokens": 483
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}
