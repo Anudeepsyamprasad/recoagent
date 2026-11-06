@@ -6,3 +6,4 @@ streamlit==1.66.1
 pytest==9.2.0
 ruff==0.17.3
 streamlit==1.66.1
+streamlit==1.66.1
