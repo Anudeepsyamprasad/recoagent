@@ -64,6 +64,7 @@ with st.sidebar:
     model = st.selectbox("Recorded model", list(config.PRICES_PER_MTOK), key="model")
     st.info("Replay mode: responses come from recorded cassettes. No API key, no cost, "
             "same answers every time.")
+    st.text_input("Your name (recorded as the approver)", key="approver")
     st.caption(f"Prompt version {PROMPT_VERSION}. Synthetic data only. Test mode only.")
 
 run_key = f"run::{dataset}::{model}"
@@ -152,7 +153,8 @@ with tab_inv:
 with tab_queue:
     st.write("Money actions never run on their own. Approving here only records the "
              "decision in a local ledger; no refund or payout is sent anywhere.")
-    approver = st.text_input("Your name (recorded in the audit log)", key="approver")
+    approver = st.session_state.get("approver", "")
+    st.caption("Enter your name in the sidebar first. It is recorded in the audit log.")
     queued = ledger.queued
     if not queued:
         st.success("Nothing is waiting for approval.")

@@ -71,7 +71,7 @@ def test_approve_records_the_human_and_moves_the_item_out_of_the_queue(env):
     assert waiting > 0
     first = next(b for b in at.button if b.key.startswith("approve_"))
     exc_id = first.key.removeprefix("approve_")
-    at.text_input(key="approver").input("anudeep").run()
+    at.sidebar.text_input(key="approver").input("anudeep").run()
     at.button(key=f"approve_{exc_id}").click().run()
     assert not at.exception
     run = at.session_state["run::sample::claude-sonnet-5-5"]
@@ -93,7 +93,7 @@ def test_reject_works(env):
     at = load()
     first = next(b for b in at.button if b.key.startswith("reject_"))
     exc_id = first.key.removeprefix("reject_")
-    at.text_input(key="approver").input("anudeep").run()
+    at.sidebar.text_input(key="approver").input("anudeep").run()
     at.button(key=f"reject_{exc_id}").click().run()
     run = at.session_state["run::sample::claude-sonnet-5-5"]
     assert run["ledger"].get(exc_id).status == "REJECTED"

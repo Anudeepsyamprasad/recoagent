@@ -203,6 +203,13 @@ def build_markdown(reports: list[dict]) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _column_order(report: dict) -> tuple[int, str]:
+    """Dev set first, then held-out runs, then model comparisons, so columns read in order."""
+    label = report["label"].lower()
+    rank = 0 if "dev" in label else 2 if "haiku" in label else 1
+    return rank, label
+
+
 def slug(label: str) -> str:
     return re.sub(r"[^a-z0-9]+", "_", label.lower()).strip("_")
 
@@ -214,5 +221,6 @@ def write_reports(report: dict, out_dir: Path | str = "reports") -> Path:
     path = out / f"eval_{slug(report['label'])}.json"
     path.write_text(json.dumps(report, indent=2), encoding="utf-8")
     reports = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(out.glob("eval_*.json"))]
+    reports.sort(key=_column_order)
     (out / "eval.md").write_text(build_markdown(reports), encoding="utf-8")
     return path
