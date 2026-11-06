@@ -1,0 +1,47 @@
+{
+ "key": "6c7a8be260a6573f85cf0de9d47c39eb",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:21+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQS/AcKEAgTGAI4AUIIdGhpbmtpbmcSDNlr/VAzCCGnb5Cp4xoM7W2VDf8O4yswQxxPIjDHiQLJIVjZrlcYMmO3m9B0uqUKKBvMQAJw54sg/nAjEZ4uSsKz7SkS6leFJdy9fIQqmQe0x99EuDhZlEUfX3EEXgoIF/TdYByDXIHNL3tanszhRpn4e4Z5iC6X57S3V/o9uRSJ57z8BhEh6etR4nkZ6hXhoC0mLnh+pBd8d+xyMsuF0rbyYZR13ImLN6p8CTOLKsjFH7qR7+onIfwPqYqu4woLGSNnfv4TWXJM6brjEqwC4nNz2jFACtTOxfQ2bOIV7Nujb3vbXXNHlJRno1mFgxL8InXdl0iL9RbYjqLgQ0tAnpdNNJeh/9/71jxcoWI2o35ihtHT/MMVHUz+N2s5hR8VvPdHaX+agMSn3PN+RamaJ+rqxgPGh0/5Y0OspgdYh+MZ5CQO5IusvgLWqS2H79fjWDxnZ8g7Yk/YV4ubHDR+FPQr5BAEuzcYE4hC/gnmqFh5cZSILfj/wyMSp1cliLFqoB7F3PTmW51RyLdO2TQ/Bz6/wWjnbYIQQAeO61pkWy0tmp4p5U9VAHBC2xpZ1GJsa9S/rebUhXX72RPbflqHld0gdreLiuFnipX+27W6rZbR01+Oo183evAjqv5RGQ1sCO1xrW21AJLVht++C6njHrlgNVaYOrS18RjXVnlFfw/HJ/MC8cwQICxqP1iAoCWV/ktem7v4nJpyXWezgKDRmR3hyddoQzmhGOC08Nw6CSWQf/wkkY40cuLQ9AfAvVjxPlJgsHoJzlQrHP1p4h5f+bODD+HUJqiSorQ99bWQtjI5WlGMltvyGJpKN6p0C6DurFYTMvwfBm95ce4fzHOC6FKGxAR+/bfCY3V7USg2e0zPCqJf+rDY51MeL4uImxC2jOCVKTe6PU88Kfvvv8CL8ppvdM+F38nBzZc34hw6dOTx7h36eBsQePRO+tYdEjMSinKVUrANutmUFCLbsvXeR1F+XMSiCtXu6G8Furr8d9TPAEvNEtfh4mPtpyiyYbdYPJjC4H5/uy5nUmBrgnXbT0ZDzyseI6YapuAoR7iTPbE9MlUZ+mNZ4D8a3CaP1QJGTt99ZNQm3cPT8J5/jMVCb+/fKbmA5Zt/UGPr+3AJUZi2S23h4k+7VCXb032gQs367rO7NM//lwaepwIzsSWgASNWMW4aGq9iYlcxkF8bw3K64PL+6g0AetUK9wnCP9p9b2jbE+Pkdk8sFEo0p0r7sBeXcPZ5cgx142vr/fNvGiWuKBWks/N7r9iSncYMpbf0UupRZu1jmKzucZEuNz1hWScCplo9GfZzBMxlCk2zji3wRB/SkGlZdC4YAQ==",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01Rb42WMkTbJJebbXVTkt5g5",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0017",
+     "category": "UNIT_ERROR",
+     "confidence": 0.95,
+     "evidence": [
+      "Store order TMC-10149 has amount_paise=3703, store_status=paid, razorpay_order_id=order_x3Qb9bdBNIPykx, customer nisha9041@example.com.",
+      "Razorpay payment pay_65xqIjkkjjhLYZ is captured with amount=370300 paise, linked to order_x3Qb9bdBNIPykx, same customer email, amount_refunded=0.",
+      "Store amount 3703 is exactly 1/100 of the captured amount 370300, which matches the unit-error pattern (rupees recorded where paise belong). Payment fee 7406 and tax 1333 are not relevant to the store amount.",
+      "Order and payment share the same Razorpay order id and email, so the payment is for this order."
+     ],
+     "root_cause": "The store order amount was recorded as Rs 3,703 (3703 interpreted as rupees) when the customer paid Rs 3,703.00 = 370300 paise. The stored amount is missing the paise scaling by 100x.",
+     "proposed_action": {
+      "type": "FIX_STORE_AMOUNT",
+      "payment_id": "pay_65xqIjkkjjhLYZ",
+      "amount_paise": 370300,
+      "note": "Correct TMC-10149 store amount from 3703 to 370300 paise to match captured payment pay_65xqIjkkjjhLYZ. No money movement needed."
+     },
+     "risk_level": "low"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3958,
+   "output_tokens": 817
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

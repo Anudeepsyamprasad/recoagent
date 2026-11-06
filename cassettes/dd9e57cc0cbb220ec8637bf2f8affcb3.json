@@ -1,0 +1,31 @@
+{
+ "key": "dd9e57cc0cbb220ec8637bf2f8affcb3",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:38+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQSjAcKEAgTGAI4AUIIdGhpbmtpbmcSDCIiqWHHs1oaEr4rCRoMKAxTgDe5eUjakmzPIjDujPdb9lhkqcfPVg6wOTZYlMxZhBQhnj4ZU5awui7N4BelRb1Tm7w27PIPsgjETAAqqQbcbW97RWPaBuKgPTYfMHRm/EOd1vd52KFzdHDN3NzPVViCavRlld5zH2ZnpoewssxZLFP28pJHvENDHPRp/R0wI+BNfT4JXNyNWVqWuSzI5RUGohRDvAX4zIHlHlPPbar2En7bR9FvcRirYGdaiTCGZKjziEfPGH5quze6RdlrM5LnpblbiIIPavCpqbug1C+jnkob8KDnSMC4vsm9H/qCMh2nAdVMnJ+zltlkhH/X6yby0PO+7+9AUM8BZPmMaWIxdjouf3kp07bv9lYU602s4fblAx4o085HGptYmipUNJyy7nkMMQiXWwJu9sd8WHKdZp/DQsHLnlmGocPo4ZDKECZFrUK+1cuX57koUDslafUeMOxi/U/1mpAIr89jw3YgIt2/xYsaq+HwLK2RxmEqp0L+XoKigqaAnDLtqZ9ak3ZYtBnHeeqrdOLzZ17+afejwT/bQpmR3O2nn+4c+r8ipDO96HlqMxJqsQAx3DwcvvcZKC61dus6r75YhVEMzctKSGa2zF112h/nv1lAKND38y+n/I6E8gAQXsPY2B+yYj2966vPQU4wxrAr97sPsvuLkhZzVWj/RVUdKpmpJgALtR/oCKXrquN4Q2fOA32E2bjrvhtsA7wHXt5SZ+xAkkVBEejGibeWTngoU1PynIszhtiLmkEH0jRjP3gQeZf3adq+5UhbA2QUpSCJtXljeXQEF+uvP1nIYi4gy5G05XEfaTRAa+XcFR5YXM9jo/ivvzeU1PMjy+THtHjs8T13AzwaC3XV4C4JtD71gVKAxpsxcYLE+8PF1EbJYgUtn7/8Kryt3jR72gfiCmx4tJ1dCKOIvqQby/F2oR7now1bZm3r9iMUiaM+El9Zfa7P+4ClzVyG2+XhN6rQxX/yI1gkPtQbCC1Y8aHaH8/3RQT6gu4G0M8/MgAUNehxcvyfK9fFUAYb0f4Hbx+wbxVCCA701Iy1g0xSdjiV+Fs4bcjfwtLMlHIBOs2KPkQo+2MvHAsycPMw022pWEFVEeT5rYosqg++cKMf6VGVKt0cRcBtIqO/b6yTGceHU2d4jRcJY+SV1bEpTdz6SSmYzBgB",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01KfG1br9Ydn13Zjs9c1uwat",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "razorpay_order_id": "order_b9F5FmmIG8hS2D"
+    },
+    "name": "get_payments_for_order",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3953,
+   "output_tokens": 169
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

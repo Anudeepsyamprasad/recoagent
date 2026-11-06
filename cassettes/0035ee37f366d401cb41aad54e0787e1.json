@@ -1,0 +1,48 @@
+{
+ "key": "0035ee37f366d401cb41aad54e0787e1",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:00+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQSxwYKEAgTGAI4AUIIdGhpbmtpbmcSDGCfIRgMQn9I1ILVtxoMedkW8z/uCdeNNGYTIjBW35Dpt4fmK5j6GMVzHbetep9qS9EvBOsrijS2BAfdtI06T0hsJ2rb2rEH1HfzCfwq5AU+bgCxkCo/g72cksP2uVo/7UG71G+xB733j2rEM7cy1UrODJO/t2DlYMymYfXkzilvqILMRan0EagqLkTpTVLCHOyxYyvKAn1MTH/Gm10owpmT1pu7nD0Hcj0rtBChe48AeSU/vnnWmdTLI32bYO8112AKTmwpmnKfnCzj/EE9CoyIZJnBLoYxp4rgPhc2mZTpCkEzpjwy6k6jRuiLXcsQpOjU5sH6EG0WnARiKL77Ehw0qVY5wF+beNYiHFJWlCEWCkFS/EkXAPhG3sibyM3GABaflzDetLSZHwYzzt83GOAEjkIrBHuDLcdLvdrkMlNliqFcojSgm0YPLMfCYPZ2NqLwelcCjKHLbGRZfF8V+omZ1dZs8lMFmRW2qO+c9wyww3gcw0O7zkPe5oMDvoRPMHwt3L6g4FlEZcUIjGT2khJThhFybRZ6oQjr8cB2L/uiy9HqTv+X/VUIplxC4yXvSBIYn+gghCjJT9sOdTFWHcaCCkBbEwNGq0J9CPIksLpuB4a1UzuU/1obMLJcrrVuKhOeFkg7lYyY7J3uzunehB2rX2OliT30652Sb7KYHjzA8nxRNCC4w7DwZis8MhiiNTHPfJeBzFNnoT/LqWojvPOs8rbD8dVR7ATDMuIUGw+4vLcm9w1fKLZtD0KId5T2AfbdSyAD3RsgBfZ+GO5pvCriSq2wWE+ct2CWqgoku6mO51eTSB4Yz8ul6qeeLBFyA+2fgL0KkE+O8wPluMFS2kobUk4zEI+hIL53YzWxO6KwawmQiBmmrojwAudp5gy5G/sDmhEweTSmJtn3MmqHA+9EsyVuCrmUdXkg3hZBDeHcHnstxFf1gRsEx/g8xUGJXbHJlpz2FXYHtE9i2/xGEf4PY/ZBTJnIyiTciqEpHuiGxR5mGRJXP1DLYpxXiaQyqAO55RXTSq4E1tn3NYGZCqz+nJywq/ROW1trdC0IVq4+rUEY0MmMXkY/I+oTr9Qf/q9v0RgB",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_016EDJNetKBCVEY4f2huJyXh",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0001",
+     "category": "UNRECORDED_REFUND",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10001 (razorpay_order_id order_d1iaeOV4qBkdfQ): amount_paise=304600, store_status=paid, refunded_amount_paise=0.",
+      "Payment pay_MpSscDlkrCaqx9: amount=304600, captured=true, status=refunded, amount_refunded=304600.",
+      "Refund rfnd_Jupc94tnwlavyf on pay_MpSscDlkrCaqx9: amount=304600, status=processed.",
+      "Razorpay shows a full processed refund of 304600 paise that the store does not record (store refunded amount 0)."
+     ],
+     "root_cause": "A full refund of 304600 paise was processed in Razorpay (rfnd_Jupc94tnwlavyf), but the store order was never updated with the refund, so it still shows as paid with refunded_amount 0.",
+     "proposed_action": {
+      "type": "UPDATE_STORE_REFUNDED",
+      "payment_id": "pay_MpSscDlkrCaqx9",
+      "amount_paise": 304600,
+      "note": "Record refund rfnd_Jupc94tnwlavyf (304600 paise) against TMC-10001. No new money movement required."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4157,
+   "output_tokens": 711
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

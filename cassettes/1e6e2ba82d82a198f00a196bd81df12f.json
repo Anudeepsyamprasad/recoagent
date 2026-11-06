@@ -1,0 +1,42 @@
+{
+ "key": "1e6e2ba82d82a198f00a196bd81df12f",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:17+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQS2QUKEAgTGAI4AUIIdGhpbmtpbmcSDI7K0LeyirxLxftTNBoMUJL6zmfscjee/RDBIjAqwqoznl/6OnOdlYedxHEm095k+BWx1xBVfJGYvfxD2s9ACof7AhC+XgIDlD8MyYcq9gRpl0h7uZPMU2VllMDEogiPeLy6qlxjkIpW6gRv4y1KSMEXSaSkDHtfgt+aXwiC/6mHqti6wKkyoWIiSh7VEZiELzAOyM/1PckmAfRaFCDW6bRhk0e0vGq49rN6ar+6FUdaIz0j2Say8fkIsXHKskTdUyg5XGxbBC+9ouRYaICQCRzC6g9exHdiG5JFv8vevPFaE4C8sNbibalvLEWrxGzGcHKU0qJoGrZzsAV7SLRRfAoaBqjLfO0AnEEL4gXYUrHJ4rRkcawsORV0aRj17yzPcGaxfZhNyNSpel4yIX8S9nqIhXKrMbIykmdGMLPQsQjzSJnemCdTEggMr+ETsrBKc0JibcFowD35EqnVOVGnazkpQ4sJJVU7+z/bSVySgnqBQcp5cP/PIT3f/PMI9tsJbuuaQtowV5ww+WUGxbX6BJUvmUFrOFC1F5d5XCSkDJzyu4Llh6rjTzLDy8Ajf6k1MzmbpObStwY0nD/XKk6XFY/0uXMCD6fIceBIqrOUKiTdlo2AjaH0qAD5f4lKiJ6tp83WYvIs4Jvj/mhvtiqzx9YjxfZkTgwrmuB9b8pEJtrcf/KGncsaYkqIyAI6l+zOB8Rh40g+N5Kns4aQnZYvzCDJlvS899GQOhNYK/T3rFqZYe4b1uOSpPS7/hxeEsJL4Sq/IZ4d8U62IJyqYo3stb3sDzeJVMc93YyLE9hgOWebIuTiy3f4rffxD3Ol28cWjdrSinJuA8T0Jy116HAuhvHXZZq4QC/jpJp5OtVoWuasZS/02C/HL8F1cEOpIUfj3sF6NZxTgwhgVVx/IBCznnj7iRE4ZaAxvcoXY1ZU/MoGsXyvuXoYAQ==",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01MrsN6S2RuSMkjJLzFF5faH",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "razorpay_order_id": "order_tMdRzDTn7qLWaY"
+    },
+    "name": "get_payments_for_order",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01P2DWx43yT4SPGzwTTrxeFU",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "customer_email": "dev7542@example.com"
+    },
+    "name": "search_orders",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3790,
+   "output_tokens": 166
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

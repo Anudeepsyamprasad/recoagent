@@ -1,0 +1,43 @@
+{
+ "key": "b1f0e5a3a63b4e277efb1129e16e405c",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:56+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01WtUaZZM71zz5pEttd6dseM",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0012",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.93,
+     "evidence": [
+      "Order TMC-10113 (razorpay order_kCk8PP7EWN1WWW, customer kabir4502@example.com) has amount 97400 paise and store_status 'paid', refunded_amount_paise 0.",
+      "pay_aAIbvoI4w60vaX: status captured, amount 97400, method card, created_at 1792190221, amount_refunded 0, fee 1948, tax 351.",
+      "pay_4vYfIkgc02uBOv: status captured, amount 97400, method upi, created_at 1792190770, amount_refunded 0, fee 1948, tax 351.",
+      "Both captured payments link to the same Razorpay order and the same customer email. The later payment is pay_4vYfIkgc02uBOv (created 470 seconds after the first).",
+      "get_refunds on pay_4vYfIkgc02uBOv returned zero refunds, so the duplicate has not already been returned."
+     ],
+     "root_cause": "The customer paid the same order twice (card and then UPI), and both payments were captured. The order only needs one payment, so the second capture is an overpayment.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_4vYfIkgc02uBOv",
+      "amount_paise": 97400,
+      "note": "Refund the later UPI capture. Keep pay_aAIbvoI4w60vaX (earlier card capture) as the order's payment. Refund is for a human to approve."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4498,
+   "output_tokens": 672
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

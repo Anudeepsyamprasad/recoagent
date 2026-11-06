@@ -1,0 +1,41 @@
+{
+ "key": "921c3d2c873c9bea717f50441829f8ad",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:54+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01EDBHp3Dos8E31Fk4SpwL4D",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0016",
+     "category": "AUTH_NOT_CAPTURED",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10143 (order_KA6sLGBT7afLXi) amount 87500 paise, store_status=paid",
+      "Payment pay_M3BC4UZqfUCPxg for the same order_id: amount 87500, status=authorized, captured=false, amount_refunded=0",
+      "Payment email matches order email anaya6177@example.com; no captured payment found"
+     ],
+     "root_cause": "The UPI payment was authorized but never captured, while the store marked the order as paid.",
+     "proposed_action": {
+      "type": "CAPTURE_OR_VOID",
+      "payment_id": "pay_M3BC4UZqfUCPxg",
+      "amount_paise": 87500,
+      "note": "Capture the authorized payment, or void it if the order should not be fulfilled."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3948,
+   "output_tokens": 443
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

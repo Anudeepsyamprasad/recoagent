@@ -1,0 +1,41 @@
+{
+ "key": "3acde645cec325406e7d4078f462bc53",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:26+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_016SYXuS4tZ4Ze8XSFEURqWd",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0018",
+     "category": "MISSING_PAYMENT",
+     "confidence": 0.93,
+     "evidence": [
+      "Store order TMC-10163 (razorpay_order_id order_ENM34jySIDyYZD) has store_status=paid, amount_paise=472200, refunded_amount_paise=0.",
+      "Only one Razorpay payment is linked to order_ENM34jySIDyYZD: pay_piStzcognC9YxD, status=failed, captured=false, amount=472200, amount_refunded=0.",
+      "No captured payment exists for this order, so the store's paid status is not supported by Razorpay."
+     ],
+     "root_cause": "The store marked TMC-10163 as paid, but the only payment attempt (pay_piStzcognC9YxD) failed and was never captured. The customer's payment did not go through.",
+     "proposed_action": {
+      "type": "MARK_ORDER_UNPAID",
+      "payment_id": "pay_piStzcognC9YxD",
+      "amount_paise": 472200,
+      "note": "Order TMC-10163 has no captured payment; only failed attempt pay_piStzcognC9YxD. Revert store status from paid to unpaid, and confirm with the customer before any re-collection."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4197,
+   "output_tokens": 550
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

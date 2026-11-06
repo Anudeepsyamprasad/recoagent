@@ -1,0 +1,43 @@
+{
+ "key": "dc66d463be2fab99b0af7058f208f669",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:03+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_014vTKS1AFNjzTaCqFVA3d1Q",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0008",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.9,
+     "evidence": [
+      "Order TMC-10074 amount_paise=223600, store_status=paid, refunded_amount_paise=0",
+      "Payment pay_Sc6J5Xg3mXBOKO captured, amount=238300, same razorpay order order_D4McOjUQjryreG and same email",
+      "It is the only payment for the order, so there is no duplicate",
+      "Difference is 14700 paise (Rs 147). The amounts are not in a 100x ratio, so this is not a unit error",
+      "No refund recorded on the payment (amount_refunded=0)"
+     ],
+     "root_cause": "The customer paid 14700 paise more than the store order amount. Possible causes are a shipping or gift-wrap fee, or a tax added at checkout that the store order didn't record. This needs confirmation.",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_Sc6J5Xg3mXBOKO",
+      "amount_paise": 14700,
+      "note": "Captured 238300 vs order 223600; confirm whether the extra 14700 is a legitimate charge (e.g. gift wrap) or should be refunded."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4240,
+   "output_tokens": 566
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

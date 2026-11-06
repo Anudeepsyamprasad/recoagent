@@ -1,0 +1,41 @@
+{
+ "key": "46151184b61fc9ad07657d9616c25d8c",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:34:23+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01HAePsxVqZRxm9BKqAy8dbo",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0002",
+     "category": "UNRECORDED_REFUND",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10019 (order_c4J1WRcQ1uhyMD) amount 177600 paise, store_status paid, refunded_amount_paise 0.",
+      "Payment pay_ByQxCGClbaNFDp is captured, status refunded, amount 177600, amount_refunded 177600.",
+      "Refund rfnd_NX0D1lZEzgeiwB for 177600 paise is processed, but the store shows 0 refunded."
+     ],
+     "root_cause": "Full refund of 177600 paise was processed in Razorpay but never recorded in the store order, which still shows paid with 0 refunded.",
+     "proposed_action": {
+      "type": "UPDATE_STORE_REFUNDED",
+      "payment_id": "pay_ByQxCGClbaNFDp",
+      "amount_paise": 177600,
+      "note": "Record refund rfnd_NX0D1lZEzgeiwB on TMC-10019"
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4153,
+   "output_tokens": 495
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

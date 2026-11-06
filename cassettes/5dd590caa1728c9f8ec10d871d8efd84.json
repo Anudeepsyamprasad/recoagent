@@ -1,0 +1,37 @@
+{
+ "key": "5dd590caa1728c9f8ec10d871d8efd84",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:05+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01RkV2QtGAmcQfHX6hzgVGhW",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "order_ref": "TMC-10082"
+    },
+    "name": "get_order",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_015SHpH9nPEqvvFUyyB4QqgY",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_BaloRIjOVIGhHw"
+    },
+    "name": "get_payment",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3426,
+   "output_tokens": 118
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

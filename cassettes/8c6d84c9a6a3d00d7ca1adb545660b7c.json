@@ -1,0 +1,47 @@
+{
+ "key": "8c6d84c9a6a3d00d7ca1adb545660b7c",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:04+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQShQcKEAgTGAI4AUIIdGhpbmtpbmcSDHjOA10i2s0EMSgAMRoMRYUTguBD1d9KT8O2IjBqvCxQ7ANBMinxjasWFcC8xhHs1HIBIbwWJliazl6kaIOMR6JCTB6UVHh0DZp7qpoqogbC9Rf4m/bWMCV2ocw7BiOXHmtZmLzvhlua/pFSCyjExnD2UjKcSNXi0uPeAWwkZx/XGueMDT4cyHSDtVNMicgnCwA6vg80RlCg36prtYtLfqUd670H69OxdQEjcBBNCkKowiWnk4gk9T8QH3E1wS22JC2uVZi/VSkCbBV0ZuXVNCg74vmKXz1epake6qRbhFXMGPx1slBizFw31wHlVYmUyvzx2/V+O2klONfBNhYTHcKmKv6+EkEXZUtroE/2sK8mJH6x+VAUvISzS4Ccd/N0sZw5EKNVLXI9r80DBwyO0b/1na1TGX4rgkJLT0vEQQAjlDc0FE/rbbD7bPfFxujGhLKwdpl16tBmpuTl1kcfRrzFTeN9Kgt29b6MT2nJpO/7d8bw8prvWsmZtvVk2/sLr99nq4pPddXodv+4AqE7siKzjdpahtF4kqZnvUrmUU/0ZxzhqAfhFw6H8tsSPnqZSEkjywi4vnR064dy6juFWaYzdR3Z0SUUloluKrVr8rt/3CFLJtPuGk2uGqgo290QoFv92HsApgIYMslrHJJx0q0XVznpU/HkFXyq3SnqmcJy5hO3Sy+XN2Y2acFzcgYw8jKtAiSXCDqef7B7Yg9Gwb9Yeac2DrLrd3CFfjKtCLbssG8mPzsy6XRTRVxzXMCJqdgYJkL7fqVafCIpeV0buKDMJX3Xz7XBlo1T/IZOS7G/XdrHEKHXPUX/KeTAD1OdK0Nkk7dtIj1IMXob5ShLmwrHuNG3pnZULhHmP0jQwgY0FK1YHz22pXrErYeev+rW1UyCsoKDERXLxAPNjX7sSMa2n+PH4vnYH4/C89jz9zUTGJVErRpvUwBbiYZ9KHh06Es3NEtcaTQYCHDkNz0NGYpmZwbDgNt9IIXALfu6M0B0uk/iH5uUnmnqix71HNchOYXcmZQ3DIRM2q3vBKNijN7HvzKfgo8KG/+Wn8l6EJHnjNU6RRO8SkHLOyA9/4DO85Ee6RX+lEny1as45aK2Ok2YIbplNt63lzlZqu2Kwa70i4pYlXf1rqDguF4RMhtok2pNQwbRssPhfev9DFnod0xCGAE=",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_015J1BwELMcHJn9y1xWCwytV",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0002",
+     "category": "UNRECORDED_REFUND",
+     "confidence": 0.93,
+     "evidence": [
+      "Order TMC-10019 (razorpay_order_id order_c4J1WRcQ1uhyMD) has amount_paise=177600, store_status=paid, refunded_amount_paise=0.",
+      "Payment pay_ByQxCGClbaNFDp is captured for 177600 paise, status=refunded, amount_refunded=177600, fee=3552, tax=639.",
+      "get_refunds lists rfnd_NX0D1lZEzgeiwB for 177600 paise, status=processed, created_at=1791117074.",
+      "Razorpay shows a full processed refund of 177600 paise; the store records 0 refunded. Matches the signal refund_mismatch:razorpay=177600,store=0."
+     ],
+     "root_cause": "A full refund of 177600 paise was processed in Razorpay (rfnd_NX0D1lZEzgeiwB) but was never written back to the store order, which still shows refunded_amount_paise=0 and store_status=paid.",
+     "proposed_action": {
+      "type": "UPDATE_STORE_REFUNDED",
+      "payment_id": "pay_ByQxCGClbaNFDp",
+      "amount_paise": 177600,
+      "note": "Record refund rfnd_NX0D1lZEzgeiwB of 177600 paise against TMC-10019. Store status should be reviewed by a human after the update."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4153,
+   "output_tokens": 757
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

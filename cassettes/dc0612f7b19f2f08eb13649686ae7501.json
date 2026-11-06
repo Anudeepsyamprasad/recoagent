@@ -1,0 +1,42 @@
+{
+ "key": "dc0612f7b19f2f08eb13649686ae7501",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:10+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01KWLUJibNp1cD7za8DgYQru",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0009",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.9,
+     "evidence": [
+      "Order TMC-10082 amount_paise=32400, store_status=paid, razorpay_order_id=order_ciGMoKBSgUbd5u",
+      "Only one payment on that order: pay_BaloRIjOVIGhHw, captured, amount=44900, no refunds",
+      "Difference is 44900-32400=12500 paise; not a 100x unit slip",
+      "Email matches (vihaan1817@example.com)"
+     ],
+     "root_cause": "Customer was captured for 44900 paise while the store order records 32400 paise. The payment exceeds the order by 12500 paise. The cause is unknown, possibly a price change or a modified cart after order creation.",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_BaloRIjOVIGhHw",
+      "amount_paise": 12500,
+      "note": "Captured 44900 vs order 32400; overpayment of 12500 paise needs confirmation"
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4219,
+   "output_tokens": 501
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "key": "4055231b9fa1af71cec36f66da25a59d",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:36+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01RE9d16uhNQNwpmGYdyLf4U",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "order_ref": "TMC-10082"
+    },
+    "name": "get_order",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01Y8t1XqYa9huUGCRRsqGXQM",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_BaloRIjOVIGhHw"
+    },
+    "name": "get_payment",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3426,
+   "output_tokens": 118
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

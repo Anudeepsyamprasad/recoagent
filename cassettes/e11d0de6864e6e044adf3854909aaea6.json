@@ -1,0 +1,41 @@
+{
+ "key": "e11d0de6864e6e044adf3854909aaea6",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:44+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01Hfy7ZTaDLMgLmKAemB6pWA",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0014",
+     "category": "AUTH_NOT_CAPTURED",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10124 (order_TL9XmxX2tPqk0e) has store_status=paid, amount 223500 paise.",
+      "Only one payment exists for the order: pay_5aMIAUJrbeZa1l, amount 223500 paise, status=authorized, captured=false, fee 0, no refunds.",
+      "Payment amount equals order amount and email matches, so it is not a mismatch or orphan; it was never captured."
+     ],
+     "root_cause": "The UPI payment was authorized but never captured, while the store marked the order as paid. Capture is needed, or the authorization should be voided if the order should not be fulfilled.",
+     "proposed_action": {
+      "type": "CAPTURE_OR_VOID",
+      "payment_id": "pay_5aMIAUJrbeZa1l",
+      "amount_paise": 223500,
+      "note": "Authorized but not captured; capture or void."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4197,
+   "output_tokens": 483
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

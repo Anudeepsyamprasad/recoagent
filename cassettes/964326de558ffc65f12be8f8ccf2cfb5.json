@@ -1,0 +1,41 @@
+{
+ "key": "964326de558ffc65f12be8f8ccf2cfb5",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:34:49+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01QaCjPgTCNBJWs77DuJBjnt",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0006",
+     "category": "UNIT_ERROR",
+     "confidence": 0.96,
+     "evidence": [
+      "Order TMC-10068 stores amount_paise=2653 (store_status paid).",
+      "Payment pay_Uxac1N21YGBjse is captured for 265300 paise, same razorpay order id order_MLOfjSokiCOzfc and same email.",
+      "Store amount 2653 is exactly 1/100 of payment amount 265300; no refunds (amount_refunded 0)."
+     ],
+     "root_cause": "Store saved the amount in rupees (2653) instead of paise (265300), a 100x unit error.",
+     "proposed_action": {
+      "type": "FIX_STORE_AMOUNT",
+      "payment_id": "pay_Uxac1N21YGBjse",
+      "amount_paise": 265300,
+      "note": "Correct order TMC-10068 amount from 2653 to 265300 paise."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3946,
+   "output_tokens": 448
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

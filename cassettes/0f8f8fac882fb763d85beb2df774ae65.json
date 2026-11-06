@@ -1,0 +1,44 @@
+{
+ "key": "0f8f8fac882fb763d85beb2df774ae65",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:46+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01PpsCg2xEBVaXBjKNzQ5N3R",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0022",
+     "category": "ORPHAN_PAYMENT",
+     "confidence": 0.85,
+     "evidence": [
+      "pay_3O9QHGslK35hJl is captured (status=captured, captured=true) for 285200 paise via UPI, email riya5575@example.com.",
+      "Razorpay order_id order_srrNfoXcfNywKl is linked to this payment, but order_exists_in_store=false: no store order references it.",
+      "search_orders by amount 285200 paise returned 0 orders.",
+      "search_orders by customer email riya5575@example.com returned 0 orders.",
+      "get_refunds returned 0 refunds; amount_refunded=0.",
+      "Fee 5704 and tax 1027 paise recorded on the payment."
+     ],
+     "root_cause": "A captured Razorpay payment exists with no corresponding store order (no order matching its Razorpay order id, amount, or customer email). Likely a checkout whose store order was never created or was lost, so the customer's money was collected without a matching order.",
+     "proposed_action": {
+      "type": "LINK_OR_REFUND_ORPHAN",
+      "payment_id": "pay_3O9QHGslK35hJl",
+      "amount_paise": 285200,
+      "note": "No candidate store order found by amount or email. Needs human review: either create/link the store order or refund the customer. No matching order_ref candidate."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4102,
+   "output_tokens": 595
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "key": "a1e803ef69021392824e9b0bb8248649",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:34:30+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Shortfall = 104865 − 95219 = 9646.",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01KgyEtY29TDz8WiQ7isnDj2",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0003",
+     "category": "SETTLEMENT_SHORTFALL",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10030 amount 107400 paise, store_status paid, matches captured payment pay_MVzaVp62BSKLVP amount 107400.",
+      "Payment fee 2148 + tax 387, so expected settlement = 107400-2148-387 = 104865 paise.",
+      "Settlement setl_EgigYWPnsuvBqb (UTR393217654163) settled 95219 paise, with the same fee 2148 and tax 387 recorded.",
+      "Shortfall = 104865-95219 = 9646 paise with no refunds (get_refunds count 0, amount_refunded 0) to explain it."
+     ],
+     "root_cause": "The settlement paid out 9646 paise less than captured minus fee minus tax. The settlement row lists the normal fee and tax, and there is no refund or other recorded deduction to explain the gap.",
+     "proposed_action": {
+      "type": "RAISE_SETTLEMENT_QUERY",
+      "payment_id": "pay_MVzaVp62BSKLVP",
+      "amount_paise": 9646,
+      "note": "Settled 95219 vs expected 104865; ask Razorpay about the unexplained 9646 paise deduction on UTR393217654163."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4476,
+   "output_tokens": 611
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

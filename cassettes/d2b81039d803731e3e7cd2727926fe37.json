@@ -1,0 +1,47 @@
+{
+ "key": "d2b81039d803731e3e7cd2727926fe37",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:29+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQS+AYKEAgTGAI4AUIIdGhpbmtpbmcSDAMdfgkeQCKjcbRuTxoMfWn7arscul3Ke7XqIjCIIXcw5tlNZl+RYg156TNyZhxREswDD99+Tnyfe4vE1TKXKUYHFjaz/hv81wn2VKcqlQYZ5KWOz/7bwGWUm9UGTD8eYsfnAqhAkEwd8xo52F6X4LF/4QD+TasK7oapO3BTpWjehFwB4h3EXfKFZWCt+ux9yQgRNwH/31MbvDEOxGmXp1J//Qt0Wegm8c7xP6ZzY6L57jMRhhRs+vLnxdhtI5YLG9HADTBeqretooiGC5Dmyd629HIMISJTNokCxOT+B91L95k+2FVXmdL+OIuIHBf4C3BYxBVabQT5Y5Maw6Y1ILBVSN/I9N62iTHkKi6U4UnbNNMU8oQvqmfX3KcEsPyJyMkhfFr3hGXQrCLwV1CjH2zKRxqDApYdfwa6JbfS43+pAilm8R2uIG2MT2rWEyGQ3lgBBWYD7PpCTbEH8a8x5Kcu7ODMt1t6lI9x4ySNiuoCVGkQwA5uCxCjNW2mInBSiQYYFEvKBQ1+JQ2wPsARt7tuGp67tdjSnGeuT8Wtx8Pt7+maBOoSlcO0gYT9nUIf9nOxYI65J74qtYGF+MX/7tHHS4RQgqMC/natOVz8ELBor8KNQftsfm56rN4tEZULmBpeazuV9WmnFPNo3+CwIaMPtSX4U+FrdkNoyyM5tFaSZL4Tu2+u4xUm50C4sbaPZDUSUNkfIEAz3f23GQAzACTiM6sJzYLdi7rVTt65zLTpPQBKfiIJgAEfndUQpj1rn39viLJJjDNkFS8aeI4lZGy87tLf+GqSEiwWfn+NyG2vwSR877YtUth1sp9HJdjAIXNg82t8h7PKrXUvDOoFgS2neROdOelbOh2sZuSZxMVsqQEP6n1uTRTn6ZcwHIk4AGE8S9vDhA9x0S70aGvOkggH6N+Ex4wRoollyEutOIgEaKsDGSz2DSCUUTp2o9vof71q91yRq/kbN8c+4s0o6qvkZ+UmUvu8apa1KHK3SmCNZeIup37KXhGEO2fxjYGJ8yW5HEsfdyZtvEO2CpI0ZTO+HtlaeRxVVQVjTxTnkBE9hUA8z7xG6QjJzw3ETTVqeF0NBU5CVgmktN+qBO+DSolPYJW7KdYQuD9lP5ry0dwjyMYlXrlzoSjP7SKInNe+rs7D8UkYAQ==",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01SPCahjKjSHE2tP5jQK1EUp",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0007",
+     "category": "UNIT_ERROR",
+     "confidence": 0.95,
+     "evidence": [
+      "Store order TMC-10070 (razorpay_order_id order_zqhol94mJVho31) has amount_paise=3814, store_status=paid, refunded_amount_paise=0.",
+      "Razorpay payment pay_QqTFoJDoIKShVG is captured, amount=381400 paise, same order_zqhol94mJVho31, same email ishaan1565@example.com, amount_refunded=0.",
+      "Store amount 3814 is exactly 1/100 of the captured amount 381400, which matches a rupees-vs-paise unit slip (Rs 3,814.00 recorded as 3814 paise).",
+      "Only one payment is linked to this order, so this is not a duplicate or amount mismatch."
+     ],
+     "root_cause": "The store recorded the order total in rupees (3814) where paise (381400) belong. The customer paid the correct Rs 3,814.00 via netbanking, so the money side is correct and only the stored order amount is wrong.",
+     "proposed_action": {
+      "type": "FIX_STORE_AMOUNT",
+      "payment_id": "pay_QqTFoJDoIKShVG",
+      "amount_paise": 381400,
+      "note": "Correct store order TMC-10070 amount_paise from 3814 to 381400 to match captured payment. No money movement required."
+     },
+     "risk_level": "low"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3951,
+   "output_tokens": 734
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

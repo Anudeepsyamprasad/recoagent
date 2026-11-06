@@ -1,0 +1,42 @@
+{
+ "key": "43ed41c2e6230c2c5e9f6016fb3c109e",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:43+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQS0QUKEAgTGAI4AUIIdGhpbmtpbmcSDME5BKjRJUDz4esShxoMIZYu9/lSx3BmQhzuIjApRcBSUuusTJLKoF381A1ywH0Rg7ryakyxXpbs+107A3GWC2OZlMF1EYMuk6qRUWcq7gQa2E3aJBYZad1F3bco+ZxQaUFxxoKDwl1uo89qCxoH7O08e4ftHP0AzrxvYwj229ENM4UAEd92i9MknqHRoiP+YFxN1gbKdGYnMrBXZU2pVfZKRVLGBSY2d9NoacU5C1OADC5NA8B7tnF6nlO3xvaKEClGE+eCE/PQ6wT9bkpDpWDU1mNASZsqxtxS7CjyPd3hk7GM1JvQPa+K+r+YW+n6vkM0VlbzcjYSW8Hv+PfVe9ox1dIV0OkouWFHmxFisOaZFl357vOyuYO4qRD+4e+DMN0Z5A5eyyDoCg9nFSSmm1cZ40meMGBe41HPbffh8fPev+ZqIkXyyoCqz3Ch46U6/0KxAEzTuVRALVa5mLBwi3ZVAdNt3HJVNuLFJ9Q+A9jvs1xCX7tSnp8xstRJWb3rjwxi6CrZyyhtumBtcVujtlZA0+P6SKv49iSXdP0Bqq5LFrYblj1UlHKi2+jZi+eVVWqQ8St+xffng2psLXSG3+atXGUXVS+gBn9Wl6AtBMklEEjZfRLDAai6IIGgVHk1mvXN0W55VUBkdWB9Fea2UjXa7kJ0XhR3UvfBv/XJxlgHVDfp7OaDMYdqb6oX3xSQNqlQVa7vPWTSHWHGArOL3vrfbIONhutkKwU73Vr7Fluxzk1MLPYhFkWROOYo/2UsVCeZ3KX804cbRHm3UYkNK94an7cP57dbbuKGr0AIzEoDWaBCFmSfIr4qZGLLNLoY/AuSCvLtS5WmjMkxUxo5WObGZ13jSxKXD1fMoQc6dhw8+4jOZflwf4couFZOVLDQlbzihXxdG6rC/bE+4WWatmqeBruB+qv7Jj6U/Qv5GAE=",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01WagxkG33NiyqnGrScV5hZa",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "amount_paise": 285200
+    },
+    "name": "search_orders",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01WKwHwwYAuVhW65Z9S7JV5e",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "customer_email": "riya5575@example.com"
+    },
+    "name": "search_orders",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3826,
+   "output_tokens": 144
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

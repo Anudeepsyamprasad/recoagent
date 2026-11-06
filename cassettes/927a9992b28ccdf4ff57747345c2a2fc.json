@@ -1,0 +1,41 @@
+{
+ "key": "927a9992b28ccdf4ff57747345c2a2fc",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:36:06+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01ULaNTKRYuV1TQ68DUx3Awk",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0018",
+     "category": "MISSING_PAYMENT",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10163 (order_ENM34jySIDyYZD) has store_status=paid, amount 472200 paise, refunded 0.",
+      "Razorpay shows only one attempt for this order: pay_piStzcognC9YxD, amount 472200, status=failed, captured=false, fee 0.",
+      "get_payments_for_order returned count=1, so there is no captured or authorized payment."
+     ],
+     "root_cause": "The store marked the order paid, but the only Razorpay payment attempt failed and nothing was captured.",
+     "proposed_action": {
+      "type": "MARK_ORDER_UNPAID",
+      "payment_id": "pay_piStzcognC9YxD",
+      "amount_paise": 472200,
+      "note": "Only attempt failed; no captured payment for the order."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4173,
+   "output_tokens": 442
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

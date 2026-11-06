@@ -1,0 +1,43 @@
+{
+ "key": "1d84210fc96d316c1fe4128e021ab43d",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:31+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01JZtDd81e4MdLExXvwgrTq9",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0019",
+     "category": "AUTH_NOT_CAPTURED",
+     "confidence": 0.9,
+     "evidence": [
+      "Store order TMC-10187 (razorpay_order_id order_dwtYf4npFXtC5I) has store_status=paid, amount_paise=150200, refunded_amount_paise=0.",
+      "Razorpay payment pay_UelQnSfyj6H0Vt for the same order has status=authorized, captured=false, amount=150200, method=upi, amount_refunded=0.",
+      "get_payments_for_order returns only this one payment attempt, so there is no captured payment covering the order.",
+      "Amounts match exactly (150200 paise), so this is not an amount mismatch or unit error."
+     ],
+     "root_cause": "The customer's UPI payment was authorized but never captured, while the store marked the order as paid. Capture was never completed on Razorpay's side.",
+     "proposed_action": {
+      "type": "CAPTURE_OR_VOID",
+      "payment_id": "pay_UelQnSfyj6H0Vt",
+      "amount_paise": 150200,
+      "note": "Capture the authorized Rs 1,502.00 or void it, and reconcile the store's paid status to match the outcome. Verify the authorization has not expired before capturing."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4234,
+   "output_tokens": 589
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

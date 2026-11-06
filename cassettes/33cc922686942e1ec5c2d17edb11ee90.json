@@ -1,0 +1,70 @@
+{
+ "key": "33cc922686942e1ec5c2d17edb11ee90",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:06+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01GCSNDpJgpqGL6oq2qDHsaj",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "order_ref": "TMC-10030"
+    },
+    "name": "get_order",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01NYtje8tnMmuGH5J9QSo9tq",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_MVzaVp62BSKLVP"
+    },
+    "name": "get_payment",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_018ZqYGnsGChGoiPEqYSeVDM",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_MVzaVp62BSKLVP"
+    },
+    "name": "compute_expected_settlement",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01MN2k35KqANKVkacQHCpXd4",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_MVzaVp62BSKLVP"
+    },
+    "name": "get_settlement",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01GsJzjk3uaukUKYn5GvMiJ4",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_MVzaVp62BSKLVP"
+    },
+    "name": "get_refunds",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3428,
+   "output_tokens": 314
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

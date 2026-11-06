@@ -1,0 +1,42 @@
+{
+ "key": "89c6065c21c3d2bebd0ceecdc7fcbe5b",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:40+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01GHZr3sGVjeN2uFy8djKTWV",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0009",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.9,
+     "evidence": [
+      "Store order TMC-10082 (razorpay_order_id order_ciGMoKBSgUbd5u, customer vihaan1817@example.com) has amount_paise=32400 and store_status=paid, refunded_amount_paise=0.",
+      "Razorpay payment pay_BaloRIjOVIGhHw is captured with amount=44900 paise, currency INR, amount_refunded=0, same order_id and email.",
+      "get_payments_for_order returns exactly one payment (pay_BaloRIjOVIGhHw), so there is no duplicate capture.",
+      "Difference is 44900 - 32400 = 12500 paise. The amounts are not related by a 100x factor, so this is not a unit slip."
+     ],
+     "root_cause": "The customer paid Rs 449.00 against an order recorded at Rs 324.00. The cause is not visible in the data. The store amount or the charged amount may be wrong, and this needs a human check of the order's line items.",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_BaloRIjOVIGhHw",
+      "amount_paise": 12500,
+      "note": "Captured 44900 vs order 32400; confirm which amount is correct before any store or refund change."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4309,
+   "output_tokens": 603
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

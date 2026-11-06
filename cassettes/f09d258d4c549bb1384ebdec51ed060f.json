@@ -1,0 +1,41 @@
+{
+ "key": "f09d258d4c549bb1384ebdec51ed060f",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:34:54+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01WQT7yDrqVYeYcAHbch4kd4",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0007",
+     "category": "UNIT_ERROR",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10070 stores amount_paise=3814 (store_status paid).",
+      "Payment pay_QqTFoJDoIKShVG on the same razorpay order order_zqhol94mJVho31 is captured for 381400 paise.",
+      "Same email ishaan1565@example.com; 3814 is exactly 381400/100, so rupees were saved where paise belong."
+     ],
+     "root_cause": "The store saved the order amount in rupees (3814) instead of paise (381400). The payment was captured correctly.",
+     "proposed_action": {
+      "type": "FIX_STORE_AMOUNT",
+      "payment_id": "pay_QqTFoJDoIKShVG",
+      "amount_paise": 381400,
+      "note": "Correct store order amount from 3814 to 381400 paise."
+     },
+     "risk_level": "low"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3951,
+   "output_tokens": 439
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

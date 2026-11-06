@@ -1,0 +1,46 @@
+{
+ "key": "c94aef2aa1dc14438f96aacb27b5b45c",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:36+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Shortfall = 313522 − 303919 = 9603.",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01Fr1quf8qUiF7TVYjrCjmbp",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0013",
+     "category": "SETTLEMENT_SHORTFALL",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10119 amount 321100 paise, status paid; payment pay_tVuLm8ezbRkax8 captured for 321100 paise (amounts match).",
+      "Payment fee=6422, tax=1156; expected settlement = 321100-6422-1156 = 313522 paise.",
+      "Settlement setl_lcjEg1dyqPfKLo (UTR175873933734) settled only 303919 paise, with the same fee 6422 and tax 1156 reported.",
+      "No refunds on the payment (count 0), so the shortfall is unexplained: 313522-303919 = 9603 paise."
+     ],
+     "root_cause": "Razorpay settled 9603 paise less than captured minus fee minus tax. The settlement row lists the same fee and tax, and there is no refund, so nothing explains the gap. It needs a settlement query with Razorpay.",
+     "proposed_action": {
+      "type": "RAISE_SETTLEMENT_QUERY",
+      "payment_id": "pay_tVuLm8ezbRkax8",
+      "amount_paise": 9603,
+      "note": "Settled 303919 vs expected 313522; shortfall 9603 paise, UTR175873933734"
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4480,
+   "output_tokens": 603
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

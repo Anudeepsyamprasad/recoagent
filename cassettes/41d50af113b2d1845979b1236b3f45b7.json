@@ -1,0 +1,42 @@
+{
+ "key": "41d50af113b2d1845979b1236b3f45b7",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:36:27+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01GzRr7jwPb6Chx9F4FvHUkM",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0021",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.9,
+     "evidence": [
+      "Order TMC-10193 amount_paise=301500, store_status=paid, razorpay_order_id order_b9F5FmmIG8hS2D",
+      "Only one payment pay_gmYJUPuxRfAgWI, captured, amount 298900 paise, no refunds (amount_refunded=0)",
+      "Difference 301500-298900=2600 paise; not a 100x unit slip",
+      "Email matches on order and payment (kavya9853@example.com)"
+     ],
+     "root_cause": "The single captured payment is 2600 paise less than the order amount. The order may have been repriced after the Razorpay order was created, or a discount or shipping adjustment was applied. This is not a unit error, duplicate or refund.",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_gmYJUPuxRfAgWI",
+      "amount_paise": 2600,
+      "note": "Order 301500 vs captured 298900; confirm whether the short payment is acceptable or the store amount needs correction."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4226,
+   "output_tokens": 530
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

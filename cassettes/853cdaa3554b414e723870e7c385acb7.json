@@ -1,0 +1,43 @@
+{
+ "key": "853cdaa3554b414e723870e7c385acb7",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:16+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01W9gnPA4etLbgpTTx3w4479",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0016",
+     "category": "AUTH_NOT_CAPTURED",
+     "confidence": 0.92,
+     "evidence": [
+      "Store order TMC-10143 (razorpay_order_id order_KA6sLGBT7afLXi) has amount_paise 87500 and store_status 'paid', refunded_amount_paise 0.",
+      "Razorpay payment pay_M3BC4UZqfUCPxg for order_KA6sLGBT7afLXi: amount 87500, status 'authorized', captured false, method upi, amount_refunded 0.",
+      "get_payments_for_order returns only this one payment, so no captured payment exists for the order.",
+      "Amount and email (anaya6177@example.com) match between store order and payment, so this is the same transaction."
+     ],
+     "root_cause": "The customer's UPI payment was authorized but never captured. The store marked the order as paid even though no capture occurred, so the funds are held in authorization only and not settled.",
+     "proposed_action": {
+      "type": "CAPTURE_OR_VOID",
+      "payment_id": "pay_M3BC4UZqfUCPxg",
+      "amount_paise": 87500,
+      "note": "Capture the authorized Rs 875.00 if the order is to stand as paid, otherwise void the authorization and mark the order unpaid. Authorizations can lapse, so act promptly."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4215,
+   "output_tokens": 616
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

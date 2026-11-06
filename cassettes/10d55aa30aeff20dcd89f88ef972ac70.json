@@ -1,0 +1,49 @@
+{
+ "key": "10d55aa30aeff20dcd89f88ef972ac70",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:09+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQS7gYKEAgTGAI4AUIIdGhpbmtpbmcSDHViu6nmpO7X3mJ/qBoMWgfzH/zX6JFZelMGIjDMNsCAs3bZSZ8qhHCAbe6Hx3+MdXlaTom+Mq7B/vn98tXd4HAcMnTDVoofWMkWY30qiwYEZPH8YvstZeKcq4kAYrD5rorxhzHN0TW+ImErqdP1grSC0+Idzzy/KuV+jms3/2D0bsrbyBscniK8PzKO7EuySL+rwF1SGWhUmsuPl+7JLCJviBQ1+p32E1dWoSEssXARlmz6CDrZjCpRS+cqBjH66D9R57xzjg3qlSg7Pna191/YvGCeKfnjTJjHd3E0AL7vxwillIrUsrjCPbFBmXfMhy96MIASxc5HyM1uT1VfxtktzwNSxw+srXnKCqVXOoqLqqc855v89KcDE5o+csAXtxJ3IVS6rJoCamqHsE4EP/wHfnWIIWnJLOpiQDRIZpjjJsPqgsrrn+K3j3z3jCj38CVM9eMXx60Esa4nFtzcI4nPSMkoY5FZG8Oh7y8YEqiRPALa5bAniuWMReT+yt70Cv3I8FEENhlar9dfe2hLjHs5qWado5eqaPkQpDKKCSaB8G6tEeUBBSPuWpojHIgI8L79wYuyoGgWkm0qKVa5uuT6YTWdTn8OlTZFw6dLml25VyLplphRIXViuzKj2DXuU3BOEio8SUzxXeomx1NB/z3WZK+VksYfPrIU70sy7h21HVCQEUIsdwBmoJugPR4fVccezHqzVIuDYjdwKK8VEZvMv/SH64hM2CpCmbkpxzhtFcmo9/qmLfukDw3A56B+Ly28QV6iR470TQXiGwdGhl+sKLOURBUnPty4Q8mkg1CY1RHQBNLjjYfCnGIKv7X6IDEOM/pJ49zZ6dlCxC5jA5KFnjFDQS0MMTU9jd+1pTEGhm7kKQg7qFa6z1xUel3rmdlYAciscVWx9ivJPxXxxvaRBro2uBSREKYgWqM1Pzw2a94dR12c+VvlAYvk07LOF3aJM/lU2M4Djlf5/czNmwyvLDiu7GZKmRlg4rA1VjV4ZxadAtbpGsewvovh4GI1dJvTl+6ntrWJVVth4dwkS8iR4H26W6gPWpDCbA3WHRvQvY+oVLG1fqKOraR9A43JWh044RmE2npPQY6rup+OOd2anet3l054kU6ck6Y0QiUkml7MCWeDZ2l1nxgB",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01FHZhNPA5evkgQ3GxHDyVcm",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0003",
+     "category": "SETTLEMENT_SHORTFALL",
+     "confidence": 0.9,
+     "evidence": [
+      "Order TMC-10030 (razorpay order_rn4yDcaz2YBSoG) amount 107400 paise, store_status paid, refunded_amount 0.",
+      "Payment pay_MVzaVp62BSKLVP captured, amount 107400 paise, fee 2148, tax 387, amount_refunded 0, order exists in store.",
+      "compute_expected_settlement: captured 107400 - fee 2148 - tax 387 = expected 104865 paise.",
+      "get_settlement: setl_EgigYWPnsuvBqb settled, amount_settled 95219 paise, fee 2148, tax 387, UTR393217654163.",
+      "Shortfall = 104865 - 95219 = 9646 paise. get_refunds returned zero refunds, so the gap is not explained by a refund. Fee and tax on the settlement row match Razorpay's payment record, and the amount is not a 100x unit slip."
+     ],
+     "root_cause": "Settled amount is 9646 paise below the expected net (captured minus fee minus tax). No refund, fee, or tax discrepancy explains the difference on the records available, so the cause is unexplained at the settlement level and needs a query to Razorpay.",
+     "proposed_action": {
+      "type": "RAISE_SETTLEMENT_QUERY",
+      "payment_id": "pay_MVzaVp62BSKLVP",
+      "amount_paise": 9646,
+      "note": "Settlement setl_EgigYWPnsuvBqb (UTR393217654163) paid 95219 vs expected 104865; shortfall 9646 paise. Query Razorpay settlement deduction."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4476,
+   "output_tokens": 862
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

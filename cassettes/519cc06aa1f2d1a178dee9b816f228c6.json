@@ -1,0 +1,50 @@
+{
+ "key": "519cc06aa1f2d1a178dee9b816f228c6",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:54+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "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",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01XgBxQmEnzqtJaoMtnobsEQ",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0023",
+     "category": "ORPHAN_PAYMENT",
+     "confidence": 0.6,
+     "evidence": [
+      "pay_Kq3Hf0OL3BmpFI is captured (status=captured, captured=true) for 223500 paise, card, email anaya9392@example.com, linked to Razorpay order order_s0rYwRYSYdSV4K.",
+      "get_payment reports order_exists_in_store=false, so no store order is linked to this payment.",
+      "No refunds exist on the payment (count=0, amount_refunded=0).",
+      "search_orders by amount 223500 plus email anaya9392@example.com returned no orders. Searching by email alone also returned no orders.",
+      "search_orders by amount 223500 alone returned one candidate, TMC-10124 (razorpay_order_id order_TL9XmxX2tPqk0e, customer yash9656@example.com, store_status=paid, has_captured_payment=false). It is a weak match: the email and the Razorpay order id both differ, so it should not be linked on amount alone.",
+      "Razorpay fee 4470 and tax 805 are recorded on the payment; no settlement check was needed for this finding."
+     ],
+     "root_cause": "A captured Razorpay payment (order_s0rYwRYSYdSV4K) has no matching store order. The only same-amount store order (TMC-10124) belongs to a different customer and a different Razorpay order, so the payment appears to be unlinked rather than a misrecorded amount on that order.",
+     "proposed_action": {
+      "type": "LINK_OR_REFUND_ORPHAN",
+      "payment_id": "pay_Kq3Hf0OL3BmpFI",
+      "amount_paise": 223500,
+      "note": "Candidate order TMC-10124 has the same amount but a different email (yash9656@example.com) and a different razorpay_order_id (order_TL9XmxX2tPqk0e), so do not link automatically. Human should confirm whether the customer (anaya9392@example.com) has a missing order or whether to refund 223500 paise."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4402,
+   "output_tokens": 1283
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

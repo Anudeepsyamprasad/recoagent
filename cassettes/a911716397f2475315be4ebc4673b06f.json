@@ -1,0 +1,47 @@
+{
+ "key": "a911716397f2475315be4ebc4673b06f",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:36:44+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQSsgYKEAgTGAI4AUIIdGhpbmtpbmcSDDFaDQbpTRCfzXnE/RoMzG2+4xyUnXumEfYKIjCnzLxRlsdBlatmhbAMHByuiL2LoqSWZ3aYMNQeLm5Nf0xfC2B8R67vWUT/KimsWfEqzwUp32ohq7i6H3Ea9RiwOtV4vd4aJJ7PqStSWTXo7C+cIeSe0pxRGgUTS+jVeUUlv2d/rljrKWEFvwsuNYTXauVWhS2tYbKZCTlzgtyd8b6v+aW4sfDwTZhsrP/BZgEBP43oeMKGSv5hBE8qaNT1UJsYu/vO0D4VdoIKtZdJjCbdyOsjo5YR5Fn5LyUyQ514b/kQVcJXtXCNddEpAbGo1F7NgOOulNieG3khOXBCYjp4gUqxsnAKd7R9k8T5/a2iu4wmyqNsfeb3Gj4ss8W6Vooj8E6rOjqNgWL8fh2q+JYZsBGFXUwvOVaRS5jm8JjEBedQcyaLi1wEvVPK5EfiDk9/v1q040QbJMKwAaKyq8rq4KxSE/ADa0gFN4KwKQGgFCbLcybr2n+LScfT728McNHd18p3DtQAipdfGbaBPzo1Aatqu0nAAaQuBD7eVe/2GGd0xqr+AhFMAZwVDCiwsXcSz0FeUW1OSKwVpSt2aqkdqOk3BXmE1kdH2f2eB5tPfsTBpMXfQdi2iuBbfaE9crIXTHJ/sehuKdGQDObJGe4joUtD17785MZCJ0EBE+I4h4a59M1oAUP1sBslKv3P0DZKDYeE9nVGfkpDr7fhHBP2yQbwVL3gSJerfFPejeObYtq+qiJ8okNYOrDAMaMH5Bt1EtxBbrGaw44i5Gg3ANaEUnJVrILKbn970N7Tfn5NB34HVrXQgpD3E4uzMBdHuQMCnpB9962AL8NAbbOfvqWe3LSctUI0lhd+2IePnyn0/QqUZDUxu/GK3Spn9HYGfm+r5guMk5J/YFt7oFckQtr9FeXjxzbg8/6hNULYTN49nOHlLYUVpo1rNI8AMPXhXlNvEkKwR9R8cdhbVEpdjtqqXuvCtukkFBfgeAh1BjrhfxsrjDv1p1zDAAjCRPU57SLUZuGMVNlhKfLLmHhgcWpmBxarccVmTu1GVojdRwr0txgB",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_013ocRkkbYLmpbtn9QRBAKy7",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0023",
+     "category": "ORPHAN_PAYMENT",
+     "confidence": 0.7,
+     "evidence": [
+      "pay_Kq3Hf0OL3BmpFI is captured for 223500 paise, linked to Razorpay order_s0rYwRYSYdSV4K, and the store has no such order (order_exists_in_store=false).",
+      "The payment email is anaya9392@example.com. search_orders by that email returned 0 orders.",
+      "search_orders for 223500 paise returned one order, TMC-10124. Its razorpay_order_id is order_TL9XmxX2tPqk0e, which differs from the payment's order id. Its email is yash9656@example.com, which differs from the payment's email. It is marked paid but has no captured payment.",
+      "TMC-10124 matches on amount only, so it is a weak candidate and a human should verify it before linking."
+     ],
+     "root_cause": "A captured card payment references a Razorpay order id that does not exist in the store. The only amount match, TMC-10124, has a different email and a different Razorpay order id, so the link is unconfirmed. The payment may belong to TMC-10124 (a paid order with no captured payment), or it may be a stray payment that should be refunded.",
+     "proposed_action": {
+      "type": "LINK_OR_REFUND_ORPHAN",
+      "payment_id": "pay_Kq3Hf0OL3BmpFI",
+      "amount_paise": 223500,
+      "note": "Candidate order TMC-10124 matches on amount only. Email and Razorpay order id differ, so verify before linking. If it is not a match, refund the payment."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4108,
+   "output_tokens": 719
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

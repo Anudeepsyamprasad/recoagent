@@ -1,0 +1,35 @@
+{
+ "key": "57209e82cb034710f3e7723f4b83fa63",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:53+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQSrgcKEAgTGAI4AUIIdGhpbmtpbmcSDMpjxck1KFzE2ZZuDRoM8z/C21k5fP5ndI5lIjBBNVbTDUBnKAKyownD1oF/qkZW7FrpxIBWPAgen6YPu/dTpF1Dz9Z2mcPxvPGgkHUqywZvXxzjZp0phi1KHF8SgeklxZZCzZBqXaGJYIPKu55Ko/Yz1GgOWYi2AoTobc6llKjfYtKcEpRt6D3fLiBi+YgC/y3E77N8wBOl7tUSOs6jovMv+gbjd4j8I4JzNgVGJk8JcHSmUPJCvGe2552saeVaGDPZ4cSrF4Yveb87RENIqI6c/sfhRRoMaUrGcnbUSdhPtXgid4X9+mpu0XTcVniXuAI7T0EAA1k8hyPCXO6sTAS4YJafUOo/I9qyDbuhU39XbNp8K+b1PhfRbOX4jew0HAJ5Z7rJ7FogTV9ZlmjP/CwCBk3/vNk+vJulq6hefxAjOhKkqqnq81xVDGm/SqHnzwcYyUNIjnt5nqqDXfm45LukLttteD+jKg/ARYy75cc/MahzL2e9iXO/+NcEzVq7I2sYNm9E9bgbsXBHbD7G/j1vK7+slb/27wAekwUAmnTSRvE0odYtv9OMJmvs41XfTDLnjoSh34DySH4+Lpydesdt7dHxNGJxcQtGikiu3hJAnTLrGx25+5Gl5qQt9GBIjAZeViIwcDnFjYmNcEsWXuJeYkYktX8FSJhTjRXgqpM3u5wfpv9oftXH2HVK5Tj4DDtYO1h64FBv14esD6UTL6yskNNSgx8kzblYcoMKN9tdm5Dbun9Z+9Un3WA565+bxZgHFDAbAyN5Y7IvujOGgV1hEmUsiiEfp2GFgQ2bIX2S85bwxsKRnRL9p08Rs4GJ2d32HOL2JVk+yH09uR9YIzWqgdLlkF2l4QjFcNc14y29yz2+O9p2OLC9b8kk1vtrXrQsPB5exJ3KJctoOCiaDaNFHaDB3GqdawOm7NRBJ5d7rvW84G40Z7vNqX3Mo8iaa+9mHsbQpyPS7LYjGCJ6cSOKbP3DleQQ7MNfL+2EaYHC4Li5qRVzPQVKMj0Dg+trQUbY2sH6j4NSvDj9RwcZ6zjYBr1SUSr8+zgsbhQ6DUjSBCfAAYnWg3zzg8GHMO4LGjeZVqy27SxuzfY3jUcVYUHKe6IYP/0k0bPEqR1tZ5yLAZ2TnjSd1K9rnE5vLOMpDckU/bHSlgvx08nfPggOUtThofMx+jdNPmh8J+AszRs2YGpoRHKbJ7N4Am4+ZpAkIvfROI3QmVIrPwsYAQ==",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "text": "Both payments are captured for the same order and amount. Before recommending a refund, I'll check whether the later payment has already been refunded.",
+    "type": "text"
+   },
+   {
+    "id": "toolu_017LPsLYQ5pT9M281CXS6px8",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_4vYfIkgc02uBOv"
+    },
+    "name": "get_refunds",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4228,
+   "output_tokens": 227
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

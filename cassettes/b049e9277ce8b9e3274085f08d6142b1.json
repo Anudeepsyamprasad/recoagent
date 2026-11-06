@@ -1,0 +1,42 @@
+{
+ "key": "b049e9277ce8b9e3274085f08d6142b1",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:36:13+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_019AtGsUsnLegL57noAnnRuK",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0019",
+     "category": "AUTH_NOT_CAPTURED",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10187 (order_dwtYf4npFXtC5I) has store_status=paid, amount 150200 paise.",
+      "Only one Razorpay payment exists for the order: pay_UelQnSfyj6H0Vt, amount 150200 paise, status=authorized, captured=false, fee 0, amount_refunded 0.",
+      "The payment amount equals the order amount, and the emails match (riya8741@example.com).",
+      "No captured payment exists, so the store's 'paid' status is not backed by money received."
+     ],
+     "root_cause": "The UPI payment was authorized but never captured, while the store marked the order paid. Either capture it or void it. If it isn't captured, the authorization will eventually expire and the customer's funds will be released.",
+     "proposed_action": {
+      "type": "CAPTURE_OR_VOID",
+      "payment_id": "pay_UelQnSfyj6H0Vt",
+      "amount_paise": 150200,
+      "note": "Authorized but uncaptured; capture if the order should be fulfilled, otherwise void."
+     },
+     "risk_level": "high"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4206,
+   "output_tokens": 535
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

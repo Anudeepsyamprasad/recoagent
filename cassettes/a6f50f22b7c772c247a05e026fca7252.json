@@ -1,0 +1,43 @@
+{
+ "key": "a6f50f22b7c772c247a05e026fca7252",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:41+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01Q8xv9DicJxtMkCLeKganYB",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0021",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.9,
+     "evidence": [
+      "Store order TMC-10193 (razorpay order_b9F5FmmIG8hS2D) amount_paise=301500, store_status=paid, refunded_amount_paise=0.",
+      "Single payment pay_gmYJUPuxRfAgWI is captured, amount=298900, amount_refunded=0, same customer email and order_id.",
+      "get_payments_for_order returns only this one payment, so there is no duplicate or other captured payment.",
+      "Difference is 301500 - 298900 = 2600 paise (Rs 26). Not a 100x unit slip (298900 is not 1/100 of 301500)."
+     ],
+     "root_cause": "The customer paid Rs 2,989 against an order recorded at Rs 3,015. The cause is not visible in the data: it could be a discount or partial payment that was not recorded in the store, or a store pricing error. Needs confirmation against the order's line items.",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_gmYJUPuxRfAgWI",
+      "amount_paise": 2600,
+      "note": "Confirm whether the Rs 26 difference (2600 paise) is a valid discount or an underpayment before the order is delivered; order notes say 'Call before delivery'."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4299,
+   "output_tokens": 635
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

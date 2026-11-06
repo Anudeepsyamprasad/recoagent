@@ -1,0 +1,49 @@
+{
+ "key": "421e590a6fa19f2cb1a8537db0e2adfd",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:45+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQSuwcKEAgTGAI4AUIIdGhpbmtpbmcSDEXNhn2/5J5cdO7zfxoM9vDXh7GIi5XkHq+xIjBLjTQ9yEEFJ7zYjszqiNYUgZk8RQ2Vp17MvjWHQn7G82ArsBIj0ix7gCTWhaO8jN8q2Ab4+Z+vkuV8et/ee9cQ9E14A3qY8gwxZUSLR9lTlhWYB97GQ8IASVpJLpVxmAwB8yrrvXUDmj+PJWCz0msG8XpowUki0wXLgImKWs7dJjpw2Y5vBaiUM9KIdwV4enYu35xuLXafXfsDe/CMNI6/SQCHPNVcJ6qXUUAQ7Ag/OmhKcqPL0oKREZCQHk35Ryq/dIXMsZMsn9Xs0ofm0ZRm0jJoJCDxIL/munGC9ndOF6j7tbY0wcUNUvr5J5bjWqpqkwdM5u6hwlzETYl20bzZ+u5BuKxcX08E/v4norsSedEyDexnaY5fbbn8DZSYO8/Uq+aepCi1LLbgl2qfv09gLr63ZD/HjWNETPBGjnFSHm9wuoOuMGqt3gijfNSew1zqnwoOjtXt4miVMxDuZJIxmFgmWEsy53c+MZVjHbcmOOAOWTOqD+wopWz8GZvTQ0SqUcBkZNKVeJJzDmEJC109Jy5h6BDIzOhl8bJZ1Bw+6PKE4qfBDbcIDlsPtwKfVd7A28x8PbtCbHd6EeX+lcERobgGWZxoSczxmjkd8zRQnMVlS2BgZmildVyPWN2EsrrpZktE0AJVaZ0DtmoFYBjV+oQdugIrQkteqeoDA41O9jMoQonHaIUg+aGr/qW7YgrJMeQD0XdBvBwVnWo3jQhgi++gOCH4fzPbGhqALF6pgbx8OS3wUZkKUPLNL/QdX2FURtf+u2APIik4zVBUB9ISlSACSkbwHCPXbkfheVsO9utKWVubBIcGlBx+mQjXfNa482Myqy8/QRUqWwgGy8XF97H0xiL/Q71w5ScQHfeQwWCBC8v9B47nJXgf+gk5g1+FILwU3rRup9iAwmse160ZpF5i3w7arS3pmWouNLO8xEqt7Wu9i2Iem9Xe7/EXHLC02uY6ikiURF+RCV4UVDwRgOwMg761aAeR7EDslWlVqEdCUauJahncDwpPPVmsfaOfmreBIztxxhNY/fL1MMko2ZKAIMyW4JfTmG5VZEY2GrZ2ITDvCXZzvcwnd5Iu4Tq4EFOA83cx2Z7NE/BT/JOUdkA0xbnk/iPgdlsWn7ZtNvpxVkAmuWt7BAFw0LFcxtbQs6UtlkYyzZuZ6EaCA9Jucl938YX6YPb3+GqI73tlib/MyHESsLrMByPbGAE=",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01Cpk4KYp8vxZjqH8SNz5VGX",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0010",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10110 (razorpay order_TPES4EMjh6FMye) amount 216300 paise, store_status=paid, refunded_amount_paise=0.",
+      "pay_KYV0oOVVPcpg6m: status=captured, amount=216300, method=netbanking, created_at=1792150096, amount_refunded=0.",
+      "pay_Ddzp879oXRc7JO: status=captured, amount=216300, method=card, created_at=1792150233, amount_refunded=0.",
+      "Both captured payments link to the same Razorpay order and the same customer email (kavya3757@example.com). The later payment is pay_Ddzp879oXRc7JO, created 137 seconds after pay_KYV0oOVVPcpg6m.",
+      "Order amount equals each payment amount, so this is a double capture of one order rather than an amount mismatch."
+     ],
+     "root_cause": "The customer was charged twice for one order (netbanking and then card, about two minutes apart). Both attempts were captured, so the order was paid twice.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_Ddzp879oXRc7JO",
+      "amount_paise": 216300,
+      "note": "Refund the later duplicate capture. Keep pay_KYV0oOVVPcpg6m, which was the first capture and matches the order. Confirm with a human before refunding."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4221,
+   "output_tokens": 807
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

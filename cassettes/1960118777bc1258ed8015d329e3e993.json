@@ -1,0 +1,37 @@
+{
+ "key": "1960118777bc1258ed8015d329e3e993",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:42+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01KbizzBcsAeVxUA2GsLAbCc",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_3O9QHGslK35hJl"
+    },
+    "name": "get_payment",
+    "type": "tool_use"
+   },
+   {
+    "id": "toolu_01L67qtoquRzHAzCRYHJaFHB",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "payment_id": "pay_3O9QHGslK35hJl"
+    },
+    "name": "get_refunds",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3425,
+   "output_tokens": 128
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "key": "805516b1775a2eb2966ae55c4df9cf36",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:29+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "The later payment is pay_4vYfIkgc02uBOv (created 1792190770).",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01No9V4DaXcS2R1sogpnwyWR",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0012",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.96,
+     "evidence": [
+      "Order TMC-10113 (order_kCk8PP7EWN1WWW) amount 97400 paise, store_status paid, refunded 0.",
+      "pay_aAIbvoI4w60vaX: captured, card, 97400 paise, created 1792190221.",
+      "pay_4vYfIkgc02uBOv: captured, upi, 97400 paise, created 1792190770 (later, ~549s after first), same email and razorpay order.",
+      "Neither payment has refunds (amount_refunded 0); customer paid twice for one order."
+     ],
+     "root_cause": "Customer paid twice for the same order (card then UPI); both payments were captured against order_kCk8PP7EWN1WWW, so the later UPI payment is a duplicate.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_4vYfIkgc02uBOv",
+      "amount_paise": 97400,
+      "note": "Refund later duplicate UPI payment; keep earlier card payment pay_aAIbvoI4w60vaX."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4228,
+   "output_tokens": 568
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

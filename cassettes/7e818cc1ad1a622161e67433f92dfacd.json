@@ -1,0 +1,48 @@
+{
+ "key": "7e818cc1ad1a622161e67433f92dfacd",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:25+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQSkwcKEAgTGAI4AUIIdGhpbmtpbmcSDAywJbS2g7d2wzHpbBoMuC48mHAzGXIP953SIjBFUCyGXSriGg5gx7oPRmR926428YxYrVF2rD1DLBxX4PH/UhM1FlhAM2Fhrw0r0VkqsAaHLGaX1crKKcyIZScksdBUFUL3yaErbJDHxKWgOgmInHhs9bSdnaqjwNYFgRXUxjDugUryk0UpPfBCMyrYq8dK0ueq2LDuxYkvvO03e9RFZSa359gTZr4/K7BhRKFgIT1mMOM/JdRwuh346uuwI/9zr7IRszyIH/ko17s+JiQJ364MDbJ0UnEdjIO9GJDFJc2DVZu2Mbb5XSWko+5Rh6wXiuptDanQZOzcP65CNNMNq9TDQGwA/qA98NfUTbZlhGOEvX6fty4Rrz7mKx5hJG8Bl0pN6X5Elc+2SYu2ZzrlXdpVQo767n8LD9oqErlyYyebdNLYjNvK+V9vKwsze4aLy4CqCM4ozQn/apprxLUEnaJZx/rcYz/0hxZJc6vywKRCUXDOCFfmPRIIn5QEXK4DDxpJRuufdSzt3lp6ZoIJWVsc6DPOorV/2uVVnUMNbyj1cz4TQLJOLHqmZOEFapD+AY3e4rGwcJm1H2ci/n+HMiyY8gmnX7wLunSdSUsvBJTP05WeNfe4fAaODSK3AQ9HFgCEXOOftFemzarTfa1RSOFKM7KNmrQTCD3WpSRAPAvRWFEBfAWvi99A7GrXg7jxzCfWjXm7UCvrlZMefWhu+eoBQ3VaqvWO5zBKT8RfvChp3/Fs/puhI1Yh7JuRqAdP4d/rAgo/68BZ1OaIX41H+isUvyoUUYvvuU20sgaGnJWWN7V0VXDiKZJtc04SOQoJAQEhVFSYpG1gWqv525HrIXldkVz3i0Q7uaD3vPdgBDmxYXE17IyuCrmI2ouzHeEBDLtcqFZpcQtoy96sdoCAiQFIrX9YVKInwWtVizhJL1CYd9qtlF7fFatVVxuS5H6zymzENTUhBByupxW/KTVpRGUpYfTjDNNG8I0p627ik+xz1RQvoOTaGGh7DWAg8MFmhRr4LbYKDuuwLlGtJoJdxG9bfT/rL9Of+AuvKZXAPrK+F7nT6I6GI/fi0D9FIRLIjhbRkaVBj+GDPp3rOvzccsZEiNg4XrZG4a813lQ+2u0FV6oz1bVvifgeTPOe1pYpnfi5OcuTT6UtjGP/RE3RFxE6S6zKesCVKY/jKHadMjAYAQ==",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01U3Kcn4zSeZnVZFpf4XbF7B",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0006",
+     "category": "UNIT_ERROR",
+     "confidence": 0.95,
+     "evidence": [
+      "Store order TMC-10068 (razorpay_order_id order_MLOfjSokiCOzfc) has amount_paise=2653, store_status=paid, refunded_amount_paise=0.",
+      "Razorpay payment pay_Uxac1N21YGBjse is status=captured, amount=265300 paise, amount_refunded=0, same order_id order_MLOfjSokiCOzfc and same customer email.",
+      "Store amount 2653 is exactly 1/100 of captured amount 265300, so the store recorded rupees where paise belong. This is not a genuine amount difference.",
+      "Rule signal order_amount_is_payment_amount_div_100 (order=2653, paid=265300) agrees."
+     ],
+     "root_cause": "The store order amount was entered as 2653 (rupees) instead of 265300 (paise). The customer paid the correct Rs 2,653.00 (265300 paise) and the payment is captured.",
+     "proposed_action": {
+      "type": "FIX_STORE_AMOUNT",
+      "payment_id": "pay_Uxac1N21YGBjse",
+      "amount_paise": 265300,
+      "note": "Correct store order TMC-10068 amount_paise from 2653 to 265300 to match captured payment pay_Uxac1N21YGBjse. Data fix only, no money movement."
+     },
+     "risk_level": "low",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3946,
+   "output_tokens": 772
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

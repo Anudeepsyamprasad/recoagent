@@ -1,0 +1,49 @@
+{
+ "key": "95677c9fa0108410735903ede11e2054",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:35+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQS5ggKEAgTGAI4AUIIdGhpbmtpbmcSDGo+Aaw/dLbHx2YnexoMpNly3mZipnvqMV17IjDRISfymR1qyUoFPcCScITUGTDPX8VIPJEqoK5+sMYePpIFgyO8DP8HHiotBYxirmwqgwgP+IoLJMFmjvth/JRlzaOmft5pdFT9J+DtqHEz3v+EZyH/cxTbsW8VUSFp39ohmWmWSe33gvwhwr9y5HAuWivod+qDhsuaJAFD2YkpS8G6HWMSKqg0zXWZwi9qqP0itZPTjFk9RnNwSwZPFPsdMvicpvLSNGBgJccgOmh8wsyEzd3cZlh+qekeLYlw77CORc+wj+kpO/+ZnsEE4tBDqf3awM89Tk75i/2UUjLzFPJtlDsrY7u8gmJGlmLPcHXNpyNHWpx5/horAf7sqL+c/GStjAryNjR2A2p2izQ1o7bM6+rw+IK6c77uwk+OPQaxtrteowKjcg9z/vBYyYQgx0JZfZ5VnguSx2HnYVrmMGJHjltAWl2JL4cutXp5uDy95Sq4qW1L7MZqUrQbITk7Y0qotNuCoglPBqSuRdoaELpItjdXlfOmNlwSmCCOkxOQ1OrNLEWyyWNN+7PVtL3Bb2UrXj44hltlu2uWiUKj4lYdIyQQ8hd36jIzoUJxx41O5mt9JXUWFf+fSra4hDp65ZaLECNo442Z5Rp3pcl2fgdSWge1AThSzBEBS5DIDSW1apPKi/rvlnarie5B6F01pSF63QFEUL3F1ZK0nYKy8+rf4B3xzJpHJg3mdn66O+0ICaBEEhiDxmTnDdyGcj6R87L1oq6WWStte9uuY2ptkmuqH3v/N3ZpZWJBWDnNZZW4KwY68n8dSut01trJBjKKoJIyEwMoFeG5euQhoj0XqEjU2svpWYObST5IGC3MYcqU+pR302l1S8/1GLpllT+ZwEJZ9/qwXKGdkQEKHI47D65YMSANeymEMdyNnt5XEddlerluhrHxDawFobOt6s8uJNR6TZdBNFPGpjeYMZ9COM73lReJUwkluIu/RWSRTijNZe0Y/U4nf96KWYH7boEoxfzFuoVFEaIgOW4u4Irmq0Sk6GPsjYTVuQo64nbKPZQnpucv0/HiMiQnWNH1PK6eokvi/CdSplBqDby6S1bVp17ZlU7jQvFTh51IAg5QixJGVmK/FY5APr0sqZZ4fvC8nCsiyqMzou+GrTqIgalxojyWcT3O0CVdHeD0Q7N3kCCmAN7Cx0q1tO/xMZPtpCMB9XNmmwP7yfYpdRZ4Fjly4Ocmwlprl3mmA3qa6gB7Scur0Y8FFfB5i2wl51GQjIYTwp5HZvmW8Yc18wfhvlABROx8uOQ/Qngz8DkaFD3fYTNs1IzdtWooyoywm//aLLmzCvPkF36xMuUniW6/DwW3Ml1PJdxy/eJvHnkxP6qKdCA3etHqKIDK0kjKOBjAh41DSqD9LmsNmIcsY1VvbGtAT07GB0BeqpUCs0Ymk5FMmXrnE/4T0l9VjjWON8d2volyy5meFR3/GAE=",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01TqtedSU1z9qUCTQC3xQQPN",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0008",
+     "category": "AMOUNT_MISMATCH",
+     "confidence": 0.85,
+     "evidence": [
+      "Store order TMC-10074 (razorpay_order_id order_D4McOjUQjryreG) has amount_paise=223600, store_status=paid, refunded_amount_paise=0.",
+      "Payment pay_Sc6J5Xg3mXBOKO is captured, amount=238300 paise, amount_refunded=0, method=upi, same order_id and customer email as the store order.",
+      "Difference is 238300 - 223600 = 14700 paise (Rs 147). This is not a 100x unit slip (ratio is about 1.066), so UNIT_ERROR does not apply.",
+      "Store order notes say 'Gift wrap requested', which could explain an extra charge not reflected in the order amount. This is a hypothesis only and was not verified.",
+      "Only one payment is linked to the order; no duplicate or refund activity was found."
+     ],
+     "root_cause": "The captured Razorpay payment is Rs 147 (14700 paise) higher than the store order amount. The cause is not confirmed. A possible explanation is a gift-wrap charge that was collected but not added to the store order total.",
+     "proposed_action": {
+      "type": "CONFIRM_AMOUNT",
+      "payment_id": "pay_Sc6J5Xg3mXBOKO",
+      "amount_paise": 14700,
+      "note": "Confirm whether the extra Rs 147 (14700 paise) was an authorized add-on such as gift wrap. If so, correct the store order total to 238300. If not, review for a partial refund of 14700 paise."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3956,
+   "output_tokens": 935
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

@@ -1,0 +1,48 @@
+{
+ "key": "8f3faf07241afa9a095b26b70d396c3e",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:43:14+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQS0AcKEAgTGAI4AUIIdGhpbmtpbmcSDOqMLFVTHcRxjvw15xoMKRoKlKkPVXQO7IDBIjAHUVLG4jvc+aR64ZItqKmzsh5B9nvK2E/rszx9JwrJ99JHVYtZwhdvEvkFprN15ogq7QZmVqnISGsiV7/mehUSK4btdA0nHraIlU4o5knCTu1xBUEpoAck3WFGCN+xtCu0pb5DXaXul8c5UZWStn6/MBxiCGIjxNLF/K6+Tzemb/BHfg7qBKIOZOt1s0Y9YHOftqjgFIYSwhCXWtBXhdD195oqhtJRRKPi3q7Q0p5O2yyrQflU8VgGL0NJl6e8GJX6qiHgd5uHLqmQ3vaWxE+xGGHF/QRELmf9W2CEtP7Xzs6v1ah8BIfQ2ABhissGhmBmRE9sukqSRAw7w1lZeNVBSfzY77d5L9cz2PBrjPWWTR1J74WFwCu/WSVxL50bjigKKXBqKvkrNUJoMzVpDpVqDdh9c2LwQWA2j07ywEnSINCMMctVhb1RFCuGXJtUBepX68pJrCsjNUh0tMJXSdWTKa/77r05097ts4DPgyczYq9AzhO513RWuOJb81TmGPa5xw8oxMcNGJ5Shk9/LzpBAG3pMn4OIlEzb5LtBV29lf5JOQPsz4swwwE66xQwPb+5r3bRzdCSewGY0Jhq9AeT6Y2vOFhCxJKEQ8vaTJusOaHkPF5uyJ6LQVEmyrz3PsJm6ItISzPfe8XUi8Fl/wYdnzA6WItfJfn/5TySdug6PER5ik+jaXOYUUrAABzKmBmzZtjPMN49I8BfFCxR41wkK9Ph8n2OGgqHIpSA4uuha/XIwXk6Z49Jf9gJIdFHZVzwA71AFlRKrUTp44oAFXyybdulHclXZTzEXziJCCYDj8jn67istVMNYeIRAnv37NaE1LbsYzhouHXh0OsUl3loLuPdvEVxFJ/35b8zDxQMEoI3ZSs40QNlJazdaaOnG+ZJFXsiPtU0Fct9BjX7P8GuDw3HAoIn/sJwet5w7vWveu1xlR59zl9RygS0zaEq3mhg1bUuWyNXyhOGQ1W6ZcygIXuVxnAdpyEWUWE5CuMSRtbx+0nFakSSDBwL+lyid1bvsw4uwkgJLxPkidgR/Vijvg1bAJCo1HsZCcWnERr1GMj+gLkAyVD4vzX9Pkwoh+KS2FbsRuVE1sswTsZobyiUwYlVZvsmxYIOSZrF1LF/OgAlXa3YfOF4lNzkRDQVwSL/3RuJ75CCxcUyu+GCCd4OCYmljJ0KMfvcd55m4TO2LXG4+VacAqucPTPYmtnOZH54cIHaVxD7Jg3LDLt0Vf3xGAE=",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01GkokpCQWWSNsNEiV5aekfZ",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0004",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.93,
+     "evidence": [
+      "Order TMC-10031 (razorpay order_q2BEDbN2AHRQ73) has amount_paise 148000, store_status 'paid', refunded_amount_paise 0.",
+      "pay_y1F6gcqInkTY88: captured, amount 148000, method upi, created_at 1791227047, amount_refunded 0, order exists in store.",
+      "pay_g2KDInTEGbOY1x: captured, amount 148000, method card, created_at 1791227820, amount_refunded 0, order exists in store.",
+      "Both captured payments are for the same order and same amount (148000 paise), so the customer was charged twice. pay_g2KDInTEGbOY1x is the later payment (about 773 seconds after the first)."
+     ],
+     "root_cause": "The customer paid the same order twice (once by UPI, once by card), and both payments were captured. The store records only one payment for the order, so the second capture is an excess charge.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_g2KDInTEGbOY1x",
+      "amount_paise": 148000,
+      "note": "Refund the later captured payment pay_g2KDInTEGbOY1x (Rs 1,480.00). Keep pay_y1F6gcqInkTY88 as the payment for TMC-10031. Human approval is required before the refund is issued."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4222,
+   "output_tokens": 813
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

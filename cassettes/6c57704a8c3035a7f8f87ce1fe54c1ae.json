@@ -1,0 +1,43 @@
+{
+ "key": "6c57704a8c3035a7f8f87ce1fe54c1ae",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:59+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_017jjypfpFZToYGJZAfDsnQG",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0024",
+     "category": "ORPHAN_PAYMENT",
+     "confidence": 0.85,
+     "evidence": [
+      "pay_i46xS0DGHMnilP is status=captured, captured=true, amount=409000 paise (Rs 4,090), method=upi, amount_refunded=0.",
+      "Payment references razorpay order_zjXx5dB06Pql6H, and get_payment reports order_exists_in_store=false.",
+      "search_orders by amount 409000 paise returned 0 orders.",
+      "search_orders by customer email kabir3399@example.com returned 0 orders.",
+      "No refunds recorded needed for review; payment fee 8180 and tax 1472 paise are present on the payment record."
+     ],
+     "root_cause": "A captured UPI payment of Rs 4,090 exists at Razorpay for order_zjXx5dB06Pql6H, but no matching store order exists by order id, amount, or customer email. The store has no record to attach it to.",
+     "proposed_action": {
+      "type": "LINK_OR_REFUND_ORPHAN",
+      "payment_id": "pay_i46xS0DGHMnilP",
+      "amount_paise": 409000,
+      "note": "No candidate store order found by amount or email. Human should confirm whether an order was lost or never created, then either link to the correct order or refund the customer's Rs 4,090 capture."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3938,
+   "output_tokens": 593
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

@@ -1,0 +1,26 @@
+{
+ "key": "42a2b0f0d2575cb334209e4f29d598b5",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:36:48+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01BuGw4owddsR7dCrCH7yS3g",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "customer_email": "kabir3399@example.com"
+    },
+    "name": "search_orders",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3813,
+   "output_tokens": 59
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

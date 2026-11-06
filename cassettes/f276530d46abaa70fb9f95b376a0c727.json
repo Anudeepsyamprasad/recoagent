@@ -1,0 +1,46 @@
+{
+ "key": "f276530d46abaa70fb9f95b376a0c727",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:16+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "The later payment is pay_Ddzp879oXRc7JO (created_at 1792150233, versus 1792150096 for the other).",
+    "type": "text"
+   },
+   {
+    "id": "toolu_017rYc6SUZic5DGn989K4vWD",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0010",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.96,
+     "evidence": [
+      "Order TMC-10110 (order_TPES4EMjh6FMye) amount 216300 paise, store_status paid, refunded 0.",
+      "pay_KYV0oOVVPcpg6m: captured, 216300 paise, netbanking, created_at 1792150096, no refund.",
+      "pay_Ddzp879oXRc7JO: captured, 216300 paise, card, created_at 1792150233 (137s later), same order and email, no refund.",
+      "Both payments were captured for the same order, so the customer was charged twice (432600 paise total against 216300 owed)."
+     ],
+     "root_cause": "The customer paid the same order twice, first by netbanking and then by card about 137 seconds later. Both payments were captured. The later card payment is the duplicate.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_Ddzp879oXRc7JO",
+      "amount_paise": 216300,
+      "note": "Refund the later card payment. Keep the earlier netbanking payment pay_KYV0oOVVPcpg6m."
+     },
+     "risk_level": "high"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4221,
+   "output_tokens": 590
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

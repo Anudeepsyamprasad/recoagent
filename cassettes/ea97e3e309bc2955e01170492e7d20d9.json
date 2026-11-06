@@ -1,0 +1,47 @@
+{
+ "key": "ea97e3e309bc2955e01170492e7d20d9",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:34:36+00:00",
+ "response": {
+  "content": [
+   {
+    "text": "Later payment is pay_g2KDInTEGbOY1x (created 1791227820 vs 1791227047).",
+    "type": "text"
+   },
+   {
+    "id": "toolu_01KStvKRCFFEVTmSVACiN45D",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0004",
+     "category": "DUPLICATE_PAYMENT",
+     "confidence": 0.97,
+     "evidence": [
+      "Order TMC-10031 (order_q2BEDbN2AHRQ73) amount 148000 paise, store_status paid, refunded 0.",
+      "pay_y1F6gcqInkTY88: captured, 148000 paise, UPI, created_at 1791227047 (earlier).",
+      "pay_g2KDInTEGbOY1x: captured, 148000 paise, card, created_at 1791227820 (later), same order and email.",
+      "Both payments have amount_refunded 0, so the customer was charged 296000 paise for a 148000 paise order."
+     ],
+     "root_cause": "Customer paid twice for the same order, first by UPI and about 13 minutes later by card. Both payments were captured against order_q2BEDbN2AHRQ73. The later card payment is the duplicate.",
+     "proposed_action": {
+      "type": "REFUND_DUPLICATE",
+      "payment_id": "pay_g2KDInTEGbOY1x",
+      "amount_paise": 148000,
+      "note": "Refund the later duplicate card payment; keep the earlier UPI payment pay_y1F6gcqInkTY88."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4222,
+   "output_tokens": 621
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

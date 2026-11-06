@@ -1,0 +1,43 @@
+{
+ "key": "59ee43b55b8eb8386c8c6f785ff339f0",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:11+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01CqhFwcHqF2kAuhxtgxz863",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0015",
+     "category": "MISSING_PAYMENT",
+     "confidence": 0.93,
+     "evidence": [
+      "Store order TMC-10130 (razorpay_order_id order_8V85U5yEo9lMZs) has store_status=paid and amount_paise=232500.",
+      "The only Razorpay payment for this order is pay_Vm69Fg30GvZpbq: status=failed, captured=false, amount=232500, amount_refunded=0, fee=0, tax=0.",
+      "get_payments_for_order returned count=1, so there is no captured payment or other attempt for this order.",
+      "Order and payment email both match (yash6452@example.com), so the failed attempt is linked to this order."
+     ],
+     "root_cause": "The store marked TMC-10130 as paid, but the customer's only payment attempt failed and was never captured. No money was received for this order.",
+     "proposed_action": {
+      "type": "MARK_ORDER_UNPAID",
+      "payment_id": "pay_Vm69Fg30GvZpbq",
+      "amount_paise": 232500,
+      "note": "Store shows paid but the only Razorpay attempt pay_Vm69Fg30GvZpbq failed (not captured). Revert order TMC-10130 to unpaid, amount 232500 paise."
+     },
+     "risk_level": "medium",
+     "suspicious_content": false
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4209,
+   "output_tokens": 592
+  },
+  "model": "claude-haiku-5-5"
+ }
+}

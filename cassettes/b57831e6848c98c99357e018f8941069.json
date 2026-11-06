@@ -1,0 +1,42 @@
+{
+ "key": "b57831e6848c98c99357e018f8941069",
+ "model": "claude-sonnet-5-5",
+ "recorded_at": "2026-11-06T07:35:59+00:00",
+ "response": {
+  "content": [
+   {
+    "id": "toolu_01KDuHBsj2rfdixCUwK288KJ",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0017",
+     "category": "UNIT_ERROR",
+     "confidence": 0.95,
+     "evidence": [
+      "Order TMC-10149 amount_paise=3703, store_status=paid, razorpay_order_id=order_x3Qb9bdBNIPykx",
+      "Payment pay_65xqIjkkjjhLYZ is captured for 370300 paise on the same razorpay order, same email nisha9041@example.com",
+      "Store amount 3703 is exactly 1/100 of payment amount 370300 (rupees saved where paise belong)",
+      "No refunds on payment (amount_refunded=0)"
+     ],
+     "root_cause": "Store order amount was saved in rupees (3703) instead of paise (370300), a 100x unit slip.",
+     "proposed_action": {
+      "type": "FIX_STORE_AMOUNT",
+      "payment_id": "pay_65xqIjkkjjhLYZ",
+      "amount_paise": 370300,
+      "note": "Correct order TMC-10149 amount to 370300 paise"
+     },
+     "risk_level": "low"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 3958,
+   "output_tokens": 484
+  },
+  "model": "claude-sonnet-5-5"
+ }
+}

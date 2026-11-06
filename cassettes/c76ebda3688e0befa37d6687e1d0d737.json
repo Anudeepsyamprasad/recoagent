@@ -1,0 +1,49 @@
+{
+ "key": "c76ebda3688e0befa37d6687e1d0d737",
+ "model": "claude-haiku-5-5",
+ "recorded_at": "2026-11-06T07:44:02+00:00",
+ "response": {
+  "content": [
+   {
+    "signature": "CAQSzwcKEAgTGAI4AUIIdGhpbmtpbmcSDELXbNYs4zzQLcysKhoMpXUdXfOktiqnLMmfIjASYjnUu4oW7+VfRoa5R4O1iZ9joLSaAQbbQ2V/QfPo2X2LLfM0/C6vMpxmIcodo90q7AbUu70bPcCMhVW9FQuqUfIWPYGUPzhPwOwnAyLibLMXPjoS+oiF6j7f4Zr0n1jk0P6XekG7W/lxBm1xD5IF+sEASm3jRFcyVNd1n8ViPbTBfQm5M0X5h5FKr6KLGny8/rJWlkgkJltPAlUx+X9n0IQ4UEirbGQwNLbrs472l+NYMvAMZDPHa3G1TcMOW4ZJ5OZT3CN6swAqtsSx8449xupydNfICDwO9jbCPrt++HhGvkOlRjn2W53XMNzHhJ847x35nTBcwO01jnT9oIxHjmHWG/VaeSxOMoBJXhJsSh/s9ulUvdh5JuHwoQRZ6rmq52umBqzW8NJcIOVEiL51ZKK5WwY8Ew5gf2m5M5Lv3sEzEJyVQb13RSuYlymWbbXlnvGSQTL2EAyadfy4LHRDM4sWgyfuiTGv6JkO08OB2ffNIaEqkkjSNIRil6w8sCk7zUcFZqJzDGtugx+xJBoBWcF0S0g/g6halxck+Sdily2MMkIuwCzfSpq8UTefNofTsyoTHXIPFto0kVMaH/vKDgOhelif7Lf9kFBSQj3iPQQFX11Wx0M9ezNrvlnawGXv8yCD5qqwvQ209/eb6kwDfU4K9POU1OGpb/S/c01khdzCPu1V+cU6RGAf/6ZXhMeKpssEPt2XC7nR2mDc2G5ja2OUs3AA3YXBCVQbV3FaezhHM/ElKi62tPxOTOYLw/4KTPfvhYae8n2EG8ykm6657iEymilTqa/X7rLyQDp7rawTDw46tCHAaUjVjW5q+WS+b/BaWl/29K+QnFjsRFHGMilbEm83P9/jYRMjdlMqdRpfhyNJHfrLBz/ikv4DGj1HbeuFHrvlD4iZOJdfho0e5IpUsJyRtQeLcKt3peA2TTnNwDKyQT1vHcLh19KFiQdRqMMkQLox9BtS7XOOfuMFIPRcXEJMrrJaR6eZzOdZL9c1CWD5jFxL2TYtJdAaaNAVH0nJMOVelwmGB4qfVwkLCLP3CKQ99BQeazIuKwEzm6ERtp69H5jx4SnhYobfi5iKH6azL4L1fxgt3TZ/bpwychzXV+xN1Gxv9ZfZXwWQJPon0Pi3ibZ3877xQPN0iAciQmRI7XWa6Zzb1izYh7N2+hE55chXaYQyMys1384k6N5bb74EscEIz8uH6xqtD314NWcKLPTimBraS9dAHiIYAQ==",
+    "thinking": "",
+    "type": "thinking"
+   },
+   {
+    "id": "toolu_01FKzJRbD5citP7w6uaKqvqe",
+    "caller": {
+     "type": "direct"
+    },
+    "input": {
+     "exception_id": "EXC-0013",
+     "category": "SETTLEMENT_SHORTFALL",
+     "confidence": 0.85,
+     "evidence": [
+      "Order TMC-10119 (order_Q5PlSobMD5UfCn) amount 321100 paise, store_status paid, refunded_amount 0.",
+      "Payment pay_tVuLm8ezbRkax8 captured, amount 321100 paise, fee 6422, tax 1156, amount_refunded 0, email matches the order.",
+      "compute_expected_settlement: 321100 - 6422 - 1156 = 313522 paise expected.",
+      "Settlement setl_lcjEg1dyqPfKLo (UTR175873933734) amount_settled 303919 paise; fee and tax on the settlement match the payment.",
+      "Shortfall = 313522 - 303919 = 9603 paise. No refunds exist on the payment, so the gap is not explained by a refund.",
+      "Not a unit error: the store amount equals the captured amount exactly."
+     ],
+     "root_cause": "Settled amount is 9603 paise below the captured amount minus fee and tax. No refund, fee, or tax discrepancy explains it in the data available, so the cause is unknown and needs a query to the payment processor or settlement team.",
+     "proposed_action": {
+      "type": "RAISE_SETTLEMENT_QUERY",
+      "payment_id": "pay_tVuLm8ezbRkax8",
+      "amount_paise": 9603,
+      "note": "Settled 303919 vs expected 313522 paise (captured 321100 - fee 6422 - tax 1156). Shortfall 9603 paise. Settlement setl_lcjEg1dyqPfKLo, UTR175873933734."
+     },
+     "risk_level": "medium"
+    },
+    "name": "submit_finding",
+    "type": "tool_use"
+   }
+  ],
+  "stop_reason": "tool_use",
+  "usage": {
+   "input_tokens": 4480,
+   "output_tokens": 879
+  },
+  "model": "claude-haiku-5-5"
+ }
+}
