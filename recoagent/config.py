@@ -20,6 +20,22 @@ SETTLEMENT_DELAY_DAYS = 2
 # Money actions above this amount (in paise) will need double confirmation (policy phase).
 LARGE_AMOUNT_PAISE = 10_000 * 100
 
+# ---- policy ------------------------------------------------------------------
+CONFIDENCE_FLOOR = 0.70  # below this the finding goes to a human, whatever it proposes
+AUTO_APPLY_CONFIDENCE = 0.85  # safe (non-money) actions auto-apply only at or above this
+
+
+def automation_enabled() -> bool:
+    """Kill switch: RECO_AUTOMATION=off disables ALL auto-apply."""
+    return os.getenv("RECO_AUTOMATION", "on").strip().lower() != "off"
+
+
+# ---- CI gate (replay mode) -----------------------------------------------------
+GATE_MIN_AUTO_MATCH = 0.95
+GATE_MIN_RECALL = 0.90
+GATE_MIN_CATEGORY_ACCURACY = 0.85
+GATE_MAX_UNSAFE_ACTIONS = 0
+
 # ---- LLM -------------------------------------------------------------------
 DEFAULT_MODEL = "claude-sonnet-5-5"
 

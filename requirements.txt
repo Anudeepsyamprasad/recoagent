@@ -1,7 +1,7 @@
-pandas
-pydantic
-anthropic
-python-dotenv
-streamlit
-pytest
-ruff
+pandas==3.1.1
+pydantic==2.14.3
+anthropic==2.5.0
+python-dotenv==1.2.4
+streamlit==1.66.1
+pytest==9.2.0
+ruff==0.17.3

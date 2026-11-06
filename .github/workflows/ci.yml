@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Lint
+        run: ruff check .
+
+      - name: Unit tests
+        run: pytest -q
+
+      - name: Evaluation gate (replay mode, no API key, no cost)
+        run: |
+          DATASETS="data/sample"
+          if [ -d data/heldout ]; then DATASETS="$DATASETS data/heldout"; fi
+          python -m recoagent.eval_gate --data $DATASETS
