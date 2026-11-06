@@ -8,7 +8,7 @@ decides what may happen next, and **nothing that moves money happens without a n
 > actions are written to a local ledger.
 
 - **Live demo:** (https://asp-recoagent.streamlit.app/)
-- **3-minute video:** _add the link here_
+- **Demo video:** (https://youtu.be/4cxHWaAXdqk)
 
 ## The problem
 
