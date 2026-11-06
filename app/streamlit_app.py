@@ -105,7 +105,7 @@ with tab_over:
         "4. **Ledger and audit log** record everything. No refund or payout API is ever called.")
     st.dataframe(pd.DataFrame(
         [{"Route": ROUTE_LABEL[r], "Findings": n} for r, n in counts.items()]),
-        hide_index=True, use_container_width=True)
+        hide_index=True, width="stretch")
 
 # ---- investigations -----------------------------------------------------------------
 with tab_inv:
@@ -115,7 +115,7 @@ with tab_inv:
         "Amount": rupees(f.proposed_action.amount_paise), "Route": ROUTE_LABEL[d.route],
         "Suspicious": "YES" if f.suspicious_content else "",
     } for e, f, d in rows])
-    st.dataframe(table, hide_index=True, use_container_width=True)
+    st.dataframe(table, hide_index=True, width="stretch")
 
     ids = [e.exception_id for e, *_ in rows]
     chosen = st.selectbox("Inspect an exception", ids, key="inspect")
@@ -183,7 +183,7 @@ with tab_queue:
         "Exception": e.exception_id, "Action": e.action_type.value,
         "Amount": rupees(e.amount_paise), "Status": e.status,
         "By": e.approved_by or "", "Large": "double confirm" if e.double_confirm else "",
-    } for e in ledger.entries.values()]), hide_index=True, use_container_width=True)
+    } for e in ledger.entries.values()]), hide_index=True, width="stretch")
 
 # ---- audit log ----------------------------------------------------------------------
 with tab_audit:
@@ -197,7 +197,7 @@ with tab_audit:
             f"{ev['input_tokens']}/{ev['output_tokens']}" if ev["input_tokens"] else "",
         "Cost": f"${ev['cost_usd']:.4f}" if ev["cost_usd"] else "",
         "Detail": json.dumps(ev["payload"], ensure_ascii=False)[:300],
-    } for ev in all_events if ev["event"] in picked]), hide_index=True, use_container_width=True)
+    } for ev in all_events if ev["event"] in picked]), hide_index=True, width="stretch")
 
 # ---- evaluation ---------------------------------------------------------------------
 with tab_eval:
