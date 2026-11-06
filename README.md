@@ -7,7 +7,7 @@ decides what may happen next, and **nothing that moves money happens without a n
 > Synthetic data, test mode only. The executor never calls a refund or payout API: approved
 > actions are written to a local ledger.
 
-- **Live demo:** _add the Streamlit Cloud link here_ (replay mode, no API key needed)
+- **Live demo:** (https://asp-recoagent.streamlit.app/)
 - **3-minute video:** _add the link here_
 
 ## The problem
