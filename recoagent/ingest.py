@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import csv
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from pydantic import ValidationError
@@ -45,7 +45,7 @@ class Dataset:
         reproducible. Pass an explicit as_of to the matcher to override.
         """
         latest = max((p.created_at for p in self.payments), default=0)
-        return datetime.fromtimestamp(latest, timezone.utc)
+        return datetime.fromtimestamp(latest, UTC)
 
 
 def _read(path: Path, model):

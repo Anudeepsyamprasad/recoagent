@@ -22,7 +22,7 @@ import json
 import random
 import string
 from collections import defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 
 from pydantic import BaseModel
@@ -41,7 +41,6 @@ from recoagent.schemas import (
     is_money_action,
 )
 
-UTC = timezone.utc
 # "Today" for the synthetic world. Fixed so output never depends on the real clock.
 REPORT_DATE = datetime(2026, 11, 1, tzinfo=UTC)
 WINDOW_START = datetime(2026, 10, 1, tzinfo=UTC)

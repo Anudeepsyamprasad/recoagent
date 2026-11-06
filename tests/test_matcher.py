@@ -1,7 +1,7 @@
 """Tests for ingest and the deterministic matcher."""
 
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 
 import pytest
 
@@ -129,7 +129,7 @@ def test_ingest_missing_folder_fails_clearly(tmp_path):
 
 
 # ---- hand-built mini cases: tolerance edges and rules the generator never plants ----
-T0 = datetime(2026, 10, 10, 12, 0, tzinfo=timezone.utc)
+T0 = datetime(2026, 10, 10, 12, 0, tzinfo=UTC)
 
 
 def _order(amount=50_000, status=StoreStatus.PAID, refunded=0):
@@ -174,7 +174,7 @@ def test_settlement_not_flagged_before_it_is_due_but_flagged_after():
 
 
 def test_matching_ignores_timestamps_so_timezone_edges_are_safe():
-    late_evening = datetime(2026, 10, 10, 23, 30, tzinfo=timezone.utc)  # next day in IST
+    late_evening = datetime(2026, 10, 10, 23, 30, tzinfo=UTC)  # next day in IST
     order = _order().model_copy(update={"created_at": late_evening})
     pay = _pay().model_copy(update={"created_at": int(late_evening.timestamp()) + 30})
     assert not _match(order, [pay], [_settle(pay)]).exceptions

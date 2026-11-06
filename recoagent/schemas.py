@@ -174,3 +174,65 @@ class ReconException(_Row):
     signals: list[str]
     payment_ids: list[str] = Field(default_factory=list)
     amount_paise: int = Field(ge=0)  # reference amount, used for thresholds
+
+
+# ----------------------------------------------------------------------------
+# Agent output
+# ----------------------------------------------------------------------------
+class FindingCategory(StrEnum):
+    """What the agent may conclude. AGENT_ERROR is set by our code, never by the model."""
+
+    AMOUNT_MISMATCH = "AMOUNT_MISMATCH"
+    MISSING_PAYMENT = "MISSING_PAYMENT"
+    ORPHAN_PAYMENT = "ORPHAN_PAYMENT"
+    DUPLICATE_PAYMENT = "DUPLICATE_PAYMENT"
+    UNRECORDED_REFUND = "UNRECORDED_REFUND"
+    AUTH_NOT_CAPTURED = "AUTH_NOT_CAPTURED"
+    UNIT_ERROR = "UNIT_ERROR"
+    SETTLEMENT_SHORTFALL = "SETTLEMENT_SHORTFALL"
+    NEEDS_HUMAN = "NEEDS_HUMAN"
+    AGENT_ERROR = "AGENT_ERROR"
+
+
+class RiskLevel(StrEnum):
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+
+
+class ProposedAction(_Row):
+    type: ActionType
+    payment_id: str | None = None
+    amount_paise: int | None = Field(default=None, ge=0)
+    note: str = ""
+
+
+class Finding(_Row):
+    """The agent's structured conclusion for one exception (validated, never free text)."""
+
+    exception_id: str
+    category: FindingCategory
+    confidence: float = Field(ge=0, le=1)
+    evidence: list[str] = Field(min_length=1)
+    root_cause: str
+    proposed_action: ProposedAction
+    risk_level: RiskLevel
+    suspicious_content: bool = False
+
+    @classmethod
+    def needs_human(cls, exception_id: str, reason: str, *, suspicious: bool = False) -> Finding:
+        return cls(
+            exception_id=exception_id, category=FindingCategory.NEEDS_HUMAN, confidence=0.0,
+            evidence=[reason], root_cause=reason,
+            proposed_action=ProposedAction(type=ActionType.NO_ACTION),
+            risk_level=RiskLevel.HIGH, suspicious_content=suspicious,
+        )
+
+    @classmethod
+    def agent_error(cls, exception_id: str, reason: str) -> Finding:
+        return cls(
+            exception_id=exception_id, category=FindingCategory.AGENT_ERROR, confidence=0.0,
+            evidence=[reason], root_cause=reason,
+            proposed_action=ProposedAction(type=ActionType.NO_ACTION),
+            risk_level=RiskLevel.HIGH,
+        )
